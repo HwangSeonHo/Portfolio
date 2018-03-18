@@ -1,0 +1,110 @@
+package fooddk.controller.hoogi;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import fooddk.domain.Hoogi;
+import fooddk.domain.Recipe;
+import fooddk.domain.Tasty;
+import fooddk.paging.ListPageConfigBean;
+import fooddk.paging.ListResultBean_hoogi;
+import fooddk.paging.PageCounter_hoogi;
+import fooddk.service.hoogi.HoogiService;
+import fooddk.service.hoogi.HoogiServiceImpl;
+import fooddk.service.recipe.RecipeServiceImpl;
+import fooddk.service.tasty.TastyService;
+
+@Controller
+public class HoogiListController {
+
+	
+	@Autowired
+	private HoogiService hoogiservice;
+	
+	@Autowired
+	private TastyService tastyservice;
+	
+	@Autowired
+	private RecipeServiceImpl recipeserviceimpl;
+	
+	//RequestParam : 선택한 페이지 파라미터 받아오기
+	@RequestMapping(value="/HoogiList_1")
+	public String handleRequest(@ModelAttribute Hoogi hoogi, Model model, @RequestParam(defaultValue="1")  String selectPage) throws NumberFormatException, Exception{
+		String forwardPath="";
+		
+		
+		
+		//총 리스트 뽑아오기
+		List<Hoogi> hoogiList= hoogiservice.selectAll();
+		
+		//맛집 리스트 뽑아오기
+		List<Tasty> tastyList = tastyservice.selectAll();
+	
+		//레시피 리스트 뽑아오기
+		List<Recipe> recipeList = recipeserviceimpl.selectAll();
+		
+		
+		//레시피 동적 뽑아오기 (하나하나 다 뽑아와야함)
+		int recipecount1 = recipeserviceimpl.countAllByDynamic(1);
+		int recipecount2 = recipeserviceimpl.countAllByDynamic(2);
+		int recipecount3 = recipeserviceimpl.countAllByDynamic(3);
+		int recipecount4 = recipeserviceimpl.countAllByDynamic(4);
+		int recipecount5 = recipeserviceimpl.countAllByDynamic(5);
+	
+		
+		//pageconfig 설정
+		//row 게시판 글 수
+		//page count -> 한 페이지에 보여지는 페이징 숫자
+		ListPageConfigBean listpageconfigbean= new ListPageConfigBean(4,2,selectPage,"a","b");
+		
+		
+		//listpageconfigbean에서 등록한 값들을 ListResultBean_hoogi 에 값을 넣어 연산해주어야함
+		
+		
+		ListResultBean_hoogi Listresort=hoogiservice.selectAllPaging(listpageconfigbean);
+		
+		//모드 선택한 리스트 hoogiList
+		model.addAttribute("hoogiList",hoogiList);
+		
+		
+		//모든 페이지 보여주는 Listresort
+		model.addAttribute("ListPage",Listresort);
+		
+
+		//맛집 리스트 보여주기
+		model.addAttribute("tastyList",tastyList);
+		
+		//리시피 리스트 보여주기
+		model.addAttribute("recipeList",recipeList);
+		
+	
+		//카운트뽑아오기
+		model.addAttribute("recipecount1",recipecount1);
+		model.addAttribute("recipecount2",recipecount2);
+		model.addAttribute("recipecount3",recipecount3);
+		model.addAttribute("recipecount4",recipecount4);
+		model.addAttribute("recipecount5",recipecount5);
+	
+		
+		//System.out.println("뀨"+Listresort.getList());
+	/*
+		for(Hoogi hoogiAll : hoogiList){
+			System.out.println("HoogiListggggg"+hoogiList);
+			System.out.println("ListPage@@@"+Listresort);
+		}
+		
+	*/	
+		forwardPath  = "HoogiList_1";
+				return forwardPath;
+	}
+}

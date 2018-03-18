@@ -1,0 +1,19 @@
+package fooddk.controller.member;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+@Controller
+public class MemberLogoutController {
+
+	@RequestMapping(value="/logout_session")
+	public String logout_session(HttpSession session){
+		
+		session.invalidate();
+		//session.removeAttribute("sId");
+		
+		return "index";
+	}
+}

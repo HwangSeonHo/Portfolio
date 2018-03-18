@@ -1,0 +1,60 @@
+package fooddk.controller.member;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import fooddk.dao.member.MemberNotFoundException;
+import fooddk.dao.member.PasswordNotFoundException;
+import fooddk.domain.Member;
+import fooddk.service.member.MemberServiceImpl;
+@SessionAttributes("sId")
+@Controller
+public class MemberLoginController {
+	@Autowired
+	private MemberServiceImpl memberServiceImpl;
+
+	public MemberLoginController() {
+		System.out.println("MemberLoginController()생성자");
+	}
+	@RequestMapping(value="/login_form")
+	public String member_login_form(){
+		return "myaccount";
+	}
+	
+	@RequestMapping(value="/login_action", method=RequestMethod.POST)
+	public String member_login(@ModelAttribute Member member, Model model ){
+		String msg = "";
+//		Member member = memberServiceImpl.selectMemberCheckId(m_id);
+		try {
+			String login;
+			login = memberServiceImpl.loginMember(member);
+			model.addAttribute("sId", member.getM_id());
+		} catch (MemberNotFoundException e) {
+			model.addAttribute("MSG1", e.getMessage());
+			return "myaccount";
+		} catch (PasswordNotFoundException e) {
+			model.addAttribute("MSG2", e.getMessage());
+			System.out.println(e.getMessage());
+			return "myaccount";
+		}
+		return "redirect:member_main.do";
+		
+	}
+	
+	@RequestMapping(value="/login_action_android", method=RequestMethod.POST)
+	public @ResponseBody String member_login(@RequestParam("id") String m_id, @RequestParam("pass") String m_pw) throws Exception{
+	
+		String loginMsg = memberServiceImpl.loginMember(new Member(m_id, m_pw));
+		
+		return loginMsg;
+		
+	}
+	
+}

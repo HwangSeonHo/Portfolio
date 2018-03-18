@@ -1,0 +1,39 @@
+drop table item cascade constraints;
+drop table jumon cascade constraints;
+drop table porce cascade constraints;
+
+CREATE TABLE jumon(
+      j_no NUMBER(10) PRIMARY KEY,
+      seat_no NUMBER(10),
+      i_no NUMBER(10)
+);
+
+CREATE TABLE porce(
+      p_no NUMBER(10) PRIMARY KEY,
+      t_no NUMBER(10),
+      j_no NUMBER(10)
+);
+
+CREATE TABLE Item(
+      i_no NUMBER(10) PRIMARY KEY,
+      i_name VARCHAR(100),
+      i_price NUMBER(10)
+);
+
+drop sequence p_no_seq;
+drop sequence j_no_seq;
+drop sequence i_no_seq;
+
+create sequence p_no_seq  increment by 1 start with 1;
+create sequence j_no_seq  increment by 1 start with 1;
+create sequence i_no_seq  increment by 1 start with 1;
+
+ALTER TABLE porce ADD CONSTRAINT IDX_porce_FK0 FOREIGN KEY (t_no) REFERENCES Tasty (t_no);
+ALTER TABLE porce ADD CONSTRAINT IDX_porce_FK1 FOREIGN KEY (j_no) REFERENCES jumon (j_no);
+ALTER TABLE Jumon ADD CONSTRAINT IDX_Jumon_FK0 FOREIGN KEY (i_no) REFERENCES item (i_no);
+
+INSERT INTO ITEM(i_no, i_name, i_price) 	VALUES(I_NO_SEQ.NEXTVAL, '커피', 4000);
+INSERT INTO ITEM(i_no, i_name, i_price) 	VALUES(I_NO_SEQ.NEXTVAL, '우유', 2000);
+INSERT INTO ITEM(i_no, i_name, i_price) 	VALUES(I_NO_SEQ.NEXTVAL, '불닭맛아몬드', 1500);
+
+commit;

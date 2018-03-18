@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Recipe.mapper.RecipeMapper">
+
+<insert id="insert" parameterType="Recipe">
+<selectKey keyProperty="r_no" keyColumn="r_no" resultType="int" order="BEFORE">
+	SELECT R_NO_SEQ.NEXTVAL FROM DUAL
+</selectKey>
+	INSERT INTO RECIPE(r_no, r_title, m_no, r_content, r_img, c_no) 
+	VALUES(#{r_no}, #{r_title}, #{m_no}, #{r_content},#{r_img}, #{c_no})
+</insert>
+
+<update id="updateByNo" parameterType="Recipe" >
+	UPDATE RECIPE
+	SET R_TITLE=#{r_title}, R_CONTENT=#{r_content}, R_IMG=#{r_img}, C_NO=#{c_no}
+	WHERE R_NO=#{r_no}
+</update>
+
+<update id="updateCount" parameterType="int">
+	UPDATE RECIPE 
+	SET R_COUNT = R_COUNT+1
+	WHERE R_NO=#{r_no}
+</update>
+
+<!-- <select id="countAll" resultType="int">
+	SELECT COUNT(*)
+	FROM RECIPE
+</select> -->
+
+<select id="countAllByDynamic" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+	<bind name="c_no" value="_parameter"/>
+		SELECT COUNT(*)
+		FROM RECIPE
+	<if test="c_no!=0">
+		WHERE c_no=#{c_no}
+	</if>
+	<if test="c_no==0">
+	</if>
+</select>
+
+<!-- <select id="findRecipeList" resultType="Recipe" parameterType="ListResultBean">
+<![CDATA[	
+	 SELECT * FROM
+	  ( SELECT rownum idx, s.* FROM
+	 	 ( SELECT r_no, r_title, r_content
+		  FROM RECIPE  
+	 	  ORDER BY r_no DESC	) 
+	  s)
+	 WHERE idx >= #{startRowNum} AND idx <= #{endRowNum}
+	 ]]>
+</select> -->
+
+<select id="findRecipeByDynamic" resultType="Recipe" parameterType="fooddk.paging.ListResultBean_recipe">
+	<bind name="c_no" value="_parameter.getC_no"/>
+	 SELECT * FROM
+	  ( SELECT rownum idx, s.* FROM
+	 	 ( SELECT r_no, r_title, r_content, c_no, r_date
+		  FROM RECIPE  
+	 <if test="c_no!=0">
+	 	WHERE c_no=#{c_no}
+	 </if>
+	 
+	 <if test="c_no==0">
+	</if>
+	 ORDER BY r_no DESC	) 
+		s)
+	WHERE idx &gt;= #{startRowNum} AND idx &lt;= #{endRowNum}
+</select>
+
+<select id="selectAll" resultType="Recipe">
+	SELECT * FROM RECIPE
+</select>
+
+<select id="selectByCount" resultType="Recipe">
+	SELECT *
+	FROM RECIPE
+	ORDER BY R_COUNT ASC
+</select>
+<select id="selectByDate" resultType="Recipe">
+	SELECT *
+	FROM RECIPE
+	ORDER BY R_DATE ASC
+</select>
+<select id="selectByNo" resultType="Recipe" parameterType="int">
+	SELECT *
+	FROM RECIPE
+	WHERE R_NO=#{r_no}
+</select>
+
+<select id="selectByTitle" resultType="Recipe" parameterType="string">
+	SELECT * 
+	FROM RECIPE 
+	WHERE R_TITLE LIKE '%'||#{r_title} ||'%'
+</select>
+
+<delete id="deleteByNo" parameterType="int">
+	DELETE FROM RECIPE
+	WHERE R_NO = #{r_no}
+</delete>
+
+<select id="selectImgByNo"  parameterType="int" resultType="string"  >
+	SELECT R_IMG
+	FROM RECIPE
+	WHERE R_NO=#{r_no}
+</select>
+
+<select id="selectAllByCount" resultType="Recipe">
+	SELECT * 
+	FROM RECIPE
+	WHERE R_COUNT>=10
+</select>
+
+</mapper>

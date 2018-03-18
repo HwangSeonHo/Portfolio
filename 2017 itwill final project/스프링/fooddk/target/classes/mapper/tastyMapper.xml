@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.tastyMapper">
+
+<insert id="insert"
+		parameterType="Tasty">
+	insert into tasty values(t_no_seq.nextval,#{t_title},#{t_content},sysdate,#{t_img},#{t_phone},#{t_time}
+							,#{t_address},#{t_location},#{t_count},#{c_no})
+	<selectKey keyProperty="t_no"
+			   order="AFTER"
+			   resultType="int">
+			   select t_no_seq.currval as seqno from dual
+	</selectKey>
+</insert>
+
+<update id="updateByNo"
+		parameterType="Tasty">
+	update tasty set t_title=#{t_title}, t_content=#{t_content}, t_img=#{t_img},t_phone=#{t_phone},
+					 t_time=#{t_time},t_address=#{t_address},t_location=#{t_location}
+					where t_no=#{t_no}
+</update>
+
+<update id="updateCount"
+		parameterType="int">
+	update tasty set t_count=t_count+1 where t_no=#{t_no}
+</update>
+
+<delete id="deleteByNo"
+		parameterType="int">
+	delete tasty where t_no=#{t_no}
+</delete>
+
+<select id="selectAll"
+		resultType="Tasty">
+	select * from tasty
+</select>
+
+<select id="selectByNo"
+		parameterType="int"
+		resultType="Tasty">
+	select * from tasty where t_no=#{t_no}
+</select>
+
+<select id="selectCount" resultType="Tasty" parameterType="ListResultBean">
+<![CDATA[	
+	 SELECT * FROM
+	  ( SELECT rownum idx, s.* FROM
+	 	 ( SELECT t_no, t_title, t_content, t_count, t_img
+		  FROM tasty  
+	 	  ORDER BY t_count desc, t_date desc) 
+	  s)
+	 WHERE idx >= #{startRowNum} AND idx <= #{endRowNum}
+	 ]]>
+</select>
+
+
+<select id="selectDate" resultType="Tasty" parameterType="ListResultBean">
+<![CDATA[	
+	 SELECT * FROM
+	  ( SELECT rownum idx, s.* FROM
+	 	 ( SELECT t_no, t_title, t_content, t_count, t_img
+		  FROM tasty  
+	 	  ORDER BY t_date desc, t_count desc) 
+	  s)
+	 WHERE idx >= #{startRowNum} AND idx <= #{endRowNum}
+	 ]]>
+</select>
+
+<select id="selectImgByNo"
+		parameterType="int"
+		resultType="string">
+	select t_img from tasty where t_no=#{t_no}
+</select>
+
+<select id="selectAddressByNo"
+		parameterType="int"
+		resultType="string">
+	select t_address from tasty where t_no=#{t_no}
+</select>
+
+<select id="selectByTitle"
+		parameterType="string"
+		resultType="Tasty">
+	select * 
+	from tasty 
+	where t_title LIKE '%'||#{t_title} ||'%'
+</select>
+
+<select id="countAll" resultType="int">
+	select count(*) from tasty
+</select>
+
+<select id="selectList" resultType="Tasty" parameterType="ListResultBean">
+<![CDATA[	
+	 SELECT * FROM
+	  ( SELECT rownum idx, s.* FROM
+	 	 ( SELECT t_no, t_title, t_content, t_count, t_img
+		  FROM tasty  
+	 	  ORDER BY t_no) 
+	  s)
+	 WHERE idx >= #{startRowNum} AND idx <= #{endRowNum}
+	 ]]>
+</select>
+
+
+</mapper>

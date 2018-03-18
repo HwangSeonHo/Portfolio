@@ -1,0 +1,131 @@
+package fooddk.controller.tasty;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.metamodel.SetAttribute;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import fooddk.domain.Hoogi;
+import fooddk.domain.Recipe;
+import fooddk.domain.Tasty;
+import fooddk.paging.ListPageConfigBean;
+import fooddk.paging.ListResultBean_tasty;
+import fooddk.paging.PageCounter_tasty;
+import fooddk.service.hoogi.HoogiServiceImpl;
+import fooddk.service.recipe.RecipeServiceImpl;
+import fooddk.service.tasty.TastyServiceImpl;
+
+@Controller
+public class TastyListController {
+	
+	@Autowired
+	private TastyServiceImpl tastyService;
+	
+	@Autowired
+	private HoogiServiceImpl hoogiService;
+	
+	@Autowired
+	private RecipeServiceImpl recipeService;
+	
+	@RequestMapping(value="/TastyList")
+	public String tastyList(Model model,@RequestParam(defaultValue="1") String selectPage) throws Exception{
+		ListPageConfigBean pageConfig = new ListPageConfigBean(6, 3, selectPage, "a", "a");
+		ListResultBean_tasty listResult = tastyService.selectList(pageConfig);
+		int t_no;
+		List<Hoogi> hoogiList = new ArrayList<>() ;
+		for(Tasty tasty : listResult.getList()){
+			t_no = tasty.getT_no();
+			Hoogi hoogi = hoogiService.selectByt_no(t_no);
+			if(hoogi != null){
+				hoogiList.add(hoogi);
+				System.out.println("꾜"+hoogi);
+			}
+		}
+		if(hoogiList.size() < 7){
+			System.out.println();
+			int size = 7-hoogiList.size();
+			System.out.println("사이즈"+size);
+			List<Hoogi> extraList = hoogiService.findHoogi(0, size);
+			for(Hoogi hoogi: extraList){
+				hoogiList.add(hoogi);
+			}
+		}
+		
+		//포워딩패스
+		model.addAttribute("ListPage", listResult);
+		model.addAttribute("hoogiList", hoogiList);
+		return "TastyList_1";
+	}
+	
+	@RequestMapping(value="/TastyList_Count")
+	public String tastyList_count(Model model,@RequestParam(defaultValue="1") String selectPage) throws Exception{
+		ListPageConfigBean pageConfig = new ListPageConfigBean(6, 3, selectPage, "a", "a");
+		ListResultBean_tasty listResult = tastyService.selectCount(pageConfig);
+		
+		
+		
+		int t_no;
+		List<Hoogi> hoogiList = new ArrayList<>() ;
+		for(Tasty tasty : listResult.getList()){
+			t_no = tasty.getT_no();
+			Hoogi hoogi = hoogiService.selectByt_no(t_no);
+			if(hoogi != null){
+				hoogiList.add(hoogi);
+				System.out.println("꾜"+hoogi);
+			}
+		}
+		if(hoogiList.size() < 7){
+			System.out.println();
+			int size = 7-hoogiList.size();
+			System.out.println("사이즈"+size);
+			List<Hoogi> extraList = hoogiService.findHoogi(0, size);
+			for(Hoogi hoogi: extraList){
+				hoogiList.add(hoogi);
+			}
+		}
+		
+		
+		
+		model.addAttribute("ListPage", listResult);
+		model.addAttribute("hoogiList", hoogiList);
+		return "TastyList_1";
+	}
+	
+	@RequestMapping(value="/TastyList_Date")
+	public String tastyList_date(Model model,@RequestParam(defaultValue="1") String selectPage) throws Exception{
+		ListPageConfigBean pageConfig = new ListPageConfigBean(6, 3, selectPage, "a", "a");
+		ListResultBean_tasty listResult = tastyService.selectDate(pageConfig);
+		int t_no;
+		List<Hoogi> hoogiList = new ArrayList<>() ;
+		for(Tasty tasty : listResult.getList()){
+			t_no = tasty.getT_no();
+			Hoogi hoogi = hoogiService.selectByt_no(t_no);
+			if(hoogi != null){
+				hoogiList.add(hoogi);
+				System.out.println("꾜"+hoogi);
+			}
+		}
+		if(hoogiList.size() < 7){
+			System.out.println();
+			int size = 7-hoogiList.size();
+			System.out.println("사이즈"+size);
+			List<Hoogi> extraList = hoogiService.findHoogi(0, size);
+			for(Hoogi hoogi: extraList){
+				hoogiList.add(hoogi);
+			}
+		}
+		//포워딩패스
+		model.addAttribute("ListPage", listResult);
+		model.addAttribute("hoogiList", hoogiList);
+		return "TastyList_1";
+	}
+}

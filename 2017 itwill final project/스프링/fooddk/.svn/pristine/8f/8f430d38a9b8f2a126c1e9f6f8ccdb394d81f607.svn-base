@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.JumonMapper">
+
+<select id="selectAll"
+		resultType="Jumon">
+	select * from jumon
+</select>	
+
+<select id="selectBySeatNo"
+		parameterType="Jumon"
+		resultType="Jumon">
+	select * from Jumon where seat_no=#{seat_no}
+</select>
+
+<insert id="insert" parameterType="Jumon">
+<selectKey keyProperty="j_no" keyColumn="j_no" resultType="int" order="AFTER">
+	SELECT J_NO_SEQ.CURRVAL FROM DUAL
+</selectKey>
+	INSERT INTO Jumon(j_no, seat_no, i_no) 
+	VALUES(J_NO_SEQ.NEXTVAL, #{seat_no}, #{i_no})
+</insert>
+
+<update id="update" parameterType="Jumon" >
+	UPDATE Jumon
+	SET seat_no=#{seat_no}, i_no=#{i_no}
+	WHERE J_NO=#{j_no}
+</update>
+
+<delete id="delete" parameterType="int">
+	DELETE FROM Jumon
+	WHERE J_NO = #{j_no}
+</delete>
+
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.ItemMapper">
+
+<select id="selectAll"
+		resultType="Item">
+	select * from item
+</select>	
+
+<select id="selectByNo"
+		parameterType="int"
+		resultType="Item">
+	select * from item where i_no=#{i_no}
+</select>
+
+<insert id="insert" parameterType="Item">
+<selectKey keyProperty="i_no" keyColumn="i_no" resultType="int" order="AFTER">
+	SELECT I_NO_SEQ.CURRVAL FROM DUAL
+</selectKey>
+	INSERT INTO ITEM(i_no, i_name, i_price) 
+	VALUES(I_NO_SEQ.NEXTVAL, #{i_name}, #{i_price})
+</insert>
+
+<update id="update" parameterType="Item" >
+	UPDATE Item
+	SET i_name=#{i_name}, i_price=#{i_price}
+	WHERE I_NO=#{i_no}
+</update>
+
+<delete id="delete" parameterType="Item">
+	DELETE FROM Item
+	WHERE I_NO = #{i_no}
+</delete>
+
+</mapper>

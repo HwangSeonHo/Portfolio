@@ -1,0 +1,247 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Lambada Template by WowThemes.net</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="assets/img/favicon.png"/>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='assets/css/edd.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='assets/css/bootstrap.min.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='style.css' type='text/css' media='all'/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Covered+By+Your+Grace'/>
+<script type="text/javascript">
+
+function memberList() {
+	f.action = "member_list.do";
+	f.submit();
+}
+
+function memberModify() {
+	document.f.action = "member_modify_form";
+	document.f.method = "POST";
+	document.f.submit();
+}
+function memberRemove() {
+	a = window.prompt("비밀번호를 입력하세요");
+		window.document.f.m_pw.value= a;
+		window.document.f.method = "POST";
+		window.document.f.action = "member_remove_action";
+		window.document.f.submit();
+}
+</script>
+</head>
+<body>
+
+	<jsp:include page="common_top.jsp"></jsp:include>
+
+
+		<!-- PAGE HEADER
+		==========================================-->
+		<div class="headertitle">
+			<div class="headercontent">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h1>User Account</h1>
+						    <span class="wtnbreadcrumbs"><a href="index.jsp">Home</a> <span class="separator"></span> <span class="actual">User Account</span></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- START CONTAINER
+		==========================================-->
+			<div class="templatemyaccount">
+			<div class="container">
+				<div class="whiteboxed whiteboxeborder">
+					<div class="row">
+						
+						<div class="col-md-6">
+							<span class="smalltitle">User My Info</span>
+							<form name="f" id="edd_profile_editor_form" class="edd_form" method="post">
+							<input type="hidden" name="m_no" value="${member.m_no}" />
+					<input type="hidden" name="m_id" value="${member.m_id}" />
+					<input type="hidden" id="m_pw" name="m_pw" value="${member.m_pw}" />
+							
+									<legend id="edd_profile_name_label">User My Info</legend>
+									<p id="edd_profile_first_name_wrap">
+										<label for="edd_first_name">NAME</label>
+											<td width=490 bgcolor="ffffff" align="left"
+								style="padding-left: 10px">${member.m_name}</td>
+									</p>
+									<p id="edd_profile_first_name_wrap">
+										<label for="edd_first_name">ID</label>
+											<td width=490 bgcolor="ffffff" align="left"
+								style="padding-left: 10px">${sId}</td>
+									</p>
+									<p id="edd_profile_first_name_wrap">
+										<label for="edd_first_name">GENDER</label>
+											<td width=490 bgcolor="ffffff" align="left"
+								style="padding-left: 10px">${member.m_gender}</td>
+									</p>
+									<p id="edd_profile_first_name_wrap">
+										<label for="edd_first_name">BIRTH</label>
+											<td width=490 bgcolor="ffffff" align="left"
+								style="padding-left: 10px">${member.m_birth}</td>
+									</p>
+									<p id="edd_profile_first_name_wrap">
+										<label for="edd_first_name">POINT</label>
+											<td width=490 bgcolor="ffffff" align="left"
+								style="padding-left: 10px">${member.m_point}</td>
+									</p>
+									<p id="edd_profile_first_name_wrap">
+										<label for="edd_first_name">GRADE</label>
+											<td width=490 bgcolor="ffffff" align="left"
+								style="padding-left: 10px">${grade}</td>
+									</p>
+								
+							</form>
+							<!-- #edd_profile_editor_form -->
+							
+							<a class="button logout"  onClick="memberModify();" ><i class="fa fa-sign-out"></i> Update</a>
+							<a class="button logout"  onclick="memberRemove();" ><i class="fa fa-sign-out"></i> Remove</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- / END CONTAINER
+		==========================================-->
+	</div>
+	<!-- end /.wrapcontent -->
+	<!-- CALL TO ACTION
+		==========================================-->
+	<div id="lambadacalltoaction" class="actionbeforefooter text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					 This optional area appears before footer. Use it for discounts, messages, or anything else! <a target="_blank" class="actionbutton" href="index.jsp"><i class="fa fa-send-o"></i> Call to Action </a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- FOOTER
+		==========================================-->
+	<footer id="lambadafooter" class="themefooter section medium-padding bg-graphite">
+	<div class="container">
+		<div class="section-inner row">
+			<div class="column column-1 col-sm-3 rightbd">
+				<div class="widgets">
+					<div class="widget widget_text" id="text-2">
+						<div class="widget-content">
+							<div class="textwidget">
+								<h2><a target="_blank" class="navbar-brand-middle" href="index.jsp">Lambada</a></h2>
+								<p>
+									 &nbsp;
+								</p>
+								<p>
+									 You're currently viewing Lambada demo, an ecommerce HTML template created by <a href="https://www.wowthemes.net/">WowThemes.net.</a>
+								</p>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /footer-a -->
+			<div class="column column-1 col-sm-3 rightbd">
+				<div class="widgets">
+					<div class="widget widget_edd_categories_tags_widget">
+						<div class="widget-content">
+							<h3 class="widget-title">Products</h3>
+							<ul class="edd-taxonomy-widget">
+								<li><a href="category-book.jsp">book</a> (3) </li>
+								<li><a href="category-logos.jsp">logos</a> (6) </li>
+								<li><a href="category-pdf.jsp">pdf</a> (6) </li>
+								<li><a href="category-photos.jsp">photos</a> (3) </li>
+							</ul>
+						</div>
+						<div class="clear">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /footer-b -->
+			<div class="column column-1 col-sm-3">
+				<div class="widgets">
+					<div class="widget widget_recent_comments">
+						<div class="widget-content">
+							<h3 class="widget-title">Comments</h3>
+							<ul id="recentcomments">
+								<li>Wandikbo BL on <a href="#">Be cool, love nature</a></li>
+								<li>Laura on <a href="#">Be cool, love nature</a></li>
+								<li>Maria on <a href="#">Women & Charity</a></li>
+							</ul>
+						</div>
+						<div class="clear">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /footer-c -->
+			<div class="column column-1 col-sm-3">
+				<div class="widgets">
+					<div class="widget widget_text" id="text-3">
+						<div class="widget-content">
+							<h3 class="widget-title">Follow Us</h3>
+							<div class="textwidget">
+								<p>
+									<a href="#"><i class="fa fa-facebook"></i> Like us on Facebook</a>
+								</p>
+								<p>
+									<a href="#"><i class="fa fa-twitter"></i> Follow us on Twitter</a>
+								</p>
+								<p>
+									<a href="#"><i class="fa fa-google-plus"></i> Visit on Google Plus</a>
+								</p>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /footer-d -->
+			<div class="clearfix">
+			</div>
+		</div>
+		<!-- /section-inner -->
+	</div>
+	<!-- /container -->
+	</footer>
+	<!-- /footer -->
+	<div class="sectioncredits">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<span class="credits-left fleft">
+					2017 짤 All Rights Reserved, WowThemes.net </span>
+					<ul class="footermenu fright">
+						<li class="current-menu-item"><a href="index.jsp">Home</a></li>
+						<li><a href="shop.jsp">Shop</a></li>
+						<li><a href="blog.jsp">Blog</a></li>
+						<li><a href="contact.jsp">Contact</a></li>
+					</ul>
+				</div>
+				<div class="clear">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- scripts -->
+	<script type='text/javascript' src='assets/js/jquery.js'></script>
+	<script type='text/javascript' src='assets/js/bootstrap.min.js'></script>
+	<script type='text/javascript' src='assets/js/masonry.js'></script>
+	<script type='text/javascript' src='assets/js/carousel.js'></script>
+	<script type='text/javascript' src='assets/js/init.js'></script>
+	<!-- end scripts -->
+</div>
+<!-- end /.wrapall -->
+</body>
+</html>

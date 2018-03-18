@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 매퍼경로 지정해주기 namespace -> DAOImpl에서써야함 -->
+<mapper namespace="com.itwill.mapper.DeveloperMapper">
+<!--result insert -->
+<!-- Mybatis 쿼리문 작성하기 파라미터타입을 바로정해서 불러올수 있음 -->
+<!-- resultType : 결과를 받을 클래스? -->
+<!-- id는 쿼리를 구분 할 수 있는 단어 -->
+<!-- 테이블전체를 조회하는 쿼리는, 받는 인자가 필요없으므로 parameterType가 필요없다. -->
+<!-- parameterType : 입력을 받는 데이터 
+ 파라미터의 값으로 사용 #{변수}
+ 파리미터 명으로 사용 ${변수명}-->
+<!-- resultType : 쿼리 수행 후 결과를 보여줌 -->
+
+
+<!-- 모든 후기 리스트 받아오기 -->
+<select id="All" resultType="Developer">
+SELECT * FROM Developer
+</select>
+
+</mapper>

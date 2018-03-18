@@ -1,0 +1,25 @@
+package fooddk.controller.recipe;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import fooddk.domain.Recipe;
+import fooddk.service.recipe.RecipeServiceImpl;
+@Controller
+public class RecipeJsonController {
+	@Autowired
+	private RecipeServiceImpl recipeServiceImpl;
+	
+	public RecipeJsonController() {
+		// TODO Auto-generated constructor stub
+	}
+	@RequestMapping(value="/recipe_list_json")
+	public @ResponseBody List<Recipe> recipeListJson(){
+		List<Recipe> recipeListJson = recipeServiceImpl.selectAll();
+		return recipeListJson;
+	}
+}

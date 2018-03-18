@@ -1,0 +1,522 @@
+2017-09-01 21:17:12,071 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:17:12 KST 2017]; root of context hierarchy
+2017-09-01 21:17:12,112 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:17:12,270 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:17:12,291 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:17:12,369 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:17:12,442 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:17:12,485 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:17:12,496 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:17:12,509 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:17:12,519 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:17:12,532 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:17:12,538 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:17:12,544 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:17:12,549 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:17:12,556 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:17:12,562 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:17:12,569 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:17:12,575 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:17:12,579 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:17:12,641 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:17:12,644 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:17:12,650 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:17:12,650 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:17:12,977 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:17:12,981 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:17:13,066 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:17:13,091 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 1
+2017-09-01 21:17:13,091 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:17:13,091 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:17:35,337 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:17:35 KST 2017]; root of context hierarchy
+2017-09-01 21:17:35,370 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:17:35,502 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:17:35,511 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:17:35,574 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:17:35,641 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:17:35,681 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:17:35,691 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:17:35,703 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:17:35,718 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:17:35,738 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:17:35,743 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:17:35,749 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:17:35,754 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:17:35,760 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:17:35,765 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:17:35,771 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:17:35,776 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:17:35,781 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:17:35,840 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:17:35,843 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:17:35,849 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:17:35,849 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:17:36,172 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:17:36,176 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:17:36,263 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:17:36,286 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 1
+2017-09-01 21:17:36,286 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:17:36,287 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:18:26,557 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:18:26 KST 2017]; root of context hierarchy
+2017-09-01 21:18:26,590 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:18:26,721 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:18:26,731 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:18:26,795 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:18:26,866 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:18:26,906 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:18:26,917 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:18:26,931 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:18:26,942 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:18:26,957 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:18:26,963 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:18:26,968 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:18:26,974 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:18:26,979 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:18:26,983 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:18:26,989 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:18:26,994 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:18:26,998 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:18:27,061 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:18:27,064 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:18:27,069 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:18:27,070 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:18:27,412 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:18:27,416 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:18:27,511 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:18:27,544 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 1
+2017-09-01 21:18:27,545 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:18:27,545 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:21:10,962 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:21:10 KST 2017]; root of context hierarchy
+2017-09-01 21:21:10,995 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:21:11,124 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:21:11,134 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:21:11,197 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:21:11,264 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:21:11,305 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:21:11,315 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:21:11,327 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:21:11,338 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:21:11,350 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:21:11,355 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:21:11,361 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:21:11,366 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:21:11,372 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:21:11,376 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:21:11,383 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:21:11,388 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:21:11,392 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:21:11,452 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:21:11,456 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:21:11,461 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:21:11,462 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:21:11,781 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:21:11,785 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:21:11,870 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:21:11,894 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 1
+2017-09-01 21:21:11,895 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:21:11,895 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:23:08,807 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:23:08 KST 2017]; root of context hierarchy
+2017-09-01 21:23:08,839 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:23:08,968 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:23:08,977 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:23:09,039 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:23:09,108 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:23:09,148 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:23:09,159 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:23:09,171 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:23:09,182 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:23:09,196 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:23:09,202 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:23:09,208 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:23:09,214 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:23:09,219 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:23:09,225 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:23:09,232 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:23:09,238 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:23:09,242 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:23:09,304 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:23:09,307 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:23:09,313 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:23:09,313 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:23:09,630 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:23:09,634 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:23:09,717 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:23:09,741 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 6
+2017-09-01 21:23:09,742 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:23:09,742 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:24:22,879 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:24:22 KST 2017]; root of context hierarchy
+2017-09-01 21:24:22,915 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:24:23,051 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:24:23,061 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:24:23,123 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:24:23,195 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:24:23,241 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:24:23,253 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:24:23,272 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:24:23,282 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:24:23,299 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:24:23,306 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:24:23,311 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:24:23,316 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:24:23,321 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:24:23,326 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:24:23,337 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:24:23,342 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:24:23,349 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:24:23,412 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:24:23,415 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:24:23,421 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:24:23,421 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:24:23,760 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:24:23,764 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:24:23,847 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:24:23,870 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 6
+2017-09-01 21:24:23,871 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:24:23,871 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:24:50,708 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:24:50 KST 2017]; root of context hierarchy
+2017-09-01 21:24:50,741 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:24:50,872 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:24:50,881 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:24:50,944 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:24:51,013 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:24:51,054 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:24:51,064 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:24:51,076 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:24:51,086 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:24:51,106 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:24:51,112 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:24:51,117 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:24:51,122 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:24:51,128 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:24:51,134 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:24:51,141 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:24:51,145 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:24:51,150 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:24:51,210 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:24:51,213 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:24:51,219 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:24:51,219 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:24:51,544 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:24:51,548 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:24:51,631 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:24:51,654 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 6
+2017-09-01 21:24:51,655 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:24:51,655 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:25:33,302 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:25:33 KST 2017]; root of context hierarchy
+2017-09-01 21:25:33,334 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:25:33,465 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:25:33,474 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:25:33,535 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:25:33,605 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:25:33,645 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:25:33,656 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:25:33,668 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:25:33,680 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:25:33,702 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:25:33,708 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:25:33,714 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:25:33,719 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:25:33,725 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:25:33,730 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:25:33,737 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:25:33,742 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:25:33,747 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:25:33,808 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:25:33,811 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:25:33,817 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:25:33,817 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:25:34,144 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:25:34,148 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:25:34,231 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:25:34,256 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 6
+2017-09-01 21:25:34,256 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:25:34,256 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:25:39,622 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:25:39 KST 2017]; root of context hierarchy
+2017-09-01 21:25:39,654 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:25:39,785 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:25:39,794 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:25:39,855 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:25:39,922 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:25:39,962 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:25:39,972 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:25:39,985 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:25:39,995 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:25:40,008 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:25:40,014 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:25:40,020 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:25:40,026 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:25:40,031 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:25:40,036 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:25:40,043 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:25:40,049 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:25:40,053 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:25:40,113 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:25:40,117 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:25:40,122 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:25:40,122 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:25:40,441 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:25:40,445 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:25:40,529 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:25:40,554 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 6
+2017-09-01 21:25:40,555 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:25:40,555 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:26:08,088 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:26:08 KST 2017]; root of context hierarchy
+2017-09-01 21:26:08,121 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:26:08,251 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:26:08,260 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:26:08,321 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:26:08,389 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:26:08,429 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:26:08,439 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:26:08,451 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:26:08,461 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:26:08,478 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:26:08,483 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:26:08,489 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:26:08,495 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:26:08,500 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:26:08,510 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:26:08,517 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:26:08,522 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:26:08,526 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:26:08,588 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:26:08,591 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:26:08,596 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:26:08,597 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:26:08,922 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:26:08,926 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:26:09,013 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:26:09,036 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 6
+2017-09-01 21:26:09,037 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:26:09,037 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:27:03,935 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:27:03 KST 2017]; root of context hierarchy
+2017-09-01 21:27:03,969 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:27:04,101 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:27:04,110 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:27:04,174 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:27:04,244 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:27:04,286 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:27:04,297 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:27:04,310 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:27:04,321 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:27:04,334 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:27:04,341 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:27:04,346 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:27:04,352 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:27:04,357 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:27:04,362 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:27:04,368 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:27:04,373 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:27:04,378 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:27:04,438 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:27:04,441 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:27:04,447 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:27:04,447 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:27:04,780 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:27:04,784 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:27:04,886 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:27:04,914 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 6
+2017-09-01 21:27:04,915 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:27:04,915 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:27:08,576 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:27:08 KST 2017]; root of context hierarchy
+2017-09-01 21:27:08,609 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:27:08,746 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:27:08,755 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:27:08,818 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:27:08,890 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:27:08,930 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:27:08,941 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:27:08,953 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:27:08,963 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:27:08,976 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:27:08,982 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:27:08,987 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:27:08,994 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:27:08,999 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:27:09,004 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:27:09,010 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:27:09,015 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:27:09,019 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:27:09,076 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:27:09,079 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:27:09,085 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:27:09,085 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:27:09,412 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:27:09,416 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:27:09,504 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:27:09,527 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 6
+2017-09-01 21:27:09,528 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:27:09,528 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:27:31,923 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:27:31 KST 2017]; root of context hierarchy
+2017-09-01 21:27:31,956 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:27:32,087 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:27:32,096 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:27:32,159 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:27:32,230 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:27:32,272 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:27:32,282 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:27:32,296 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:27:32,306 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:27:32,319 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:27:32,324 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:27:32,330 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:27:32,335 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:27:32,340 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:27:32,345 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:27:32,351 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:27:32,356 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:27:32,360 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:27:32,419 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:27:32,422 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:27:32,428 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:27:32,428 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:27:32,748 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:27:32,752 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:27:32,833 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:27:32,856 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 6
+2017-09-01 21:27:32,857 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:27:32,857 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:28:19,455 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:28:19 KST 2017]; root of context hierarchy
+2017-09-01 21:28:19,492 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:28:19,626 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:28:19,636 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:28:19,699 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:28:19,770 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:28:19,811 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:28:19,822 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:28:19,837 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:28:19,847 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:28:19,859 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:28:19,865 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:28:19,870 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:28:19,875 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:28:19,880 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:28:19,885 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:28:19,893 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:28:19,898 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:28:19,902 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:28:19,960 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:28:19,964 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:28:19,969 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:28:19,969 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:28:20,293 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:28:20,297 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:28:20,383 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:28:20,406 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 6
+2017-09-01 21:28:20,407 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:28:20,407 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:29:14,860 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:29:14 KST 2017]; root of context hierarchy
+2017-09-01 21:29:14,895 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:29:15,031 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:29:15,041 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:29:15,105 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:29:15,178 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:29:15,220 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:29:15,232 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:29:15,248 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:29:15,259 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:29:15,283 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:29:15,289 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:29:15,295 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:29:15,310 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:29:15,316 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:29:15,321 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:29:15,328 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:29:15,334 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:29:15,339 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:29:15,398 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:29:15,402 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:29:15,407 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:29:15,408 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:29:15,733 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:29:15,737 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:29:15,823 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:29:15,851 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 6
+2017-09-01 21:29:15,852 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:29:15,852 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:29:47,318 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:29:47 KST 2017]; root of context hierarchy
+2017-09-01 21:29:47,350 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:29:47,481 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:29:47,489 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:29:47,549 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:29:47,621 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:29:47,662 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:29:47,673 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:29:47,685 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:29:47,695 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:29:47,708 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:29:47,713 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:29:47,718 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:29:47,727 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:29:47,733 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:29:47,738 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:29:47,744 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:29:47,749 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:29:47,753 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:29:47,811 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:29:47,815 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:29:47,820 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:29:47,821 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:29:48,144 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:29:48,148 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:29:48,234 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:29:48,259 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 6
+2017-09-01 21:29:48,259 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:29:48,260 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:29:50,723 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:29:50 KST 2017]; root of context hierarchy
+2017-09-01 21:29:50,756 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:29:50,889 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:29:50,898 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:29:50,961 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:29:51,053 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:29:51,095 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:29:51,105 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:29:51,118 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:29:51,128 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:29:51,140 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:29:51,145 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:29:51,150 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:29:51,156 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:29:51,167 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:29:51,171 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:29:51,178 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:29:51,183 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:29:51,187 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:29:51,247 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:29:51,250 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:29:51,256 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:29:51,256 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:29:51,582 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:29:51,586 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:29:51,672 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:29:51,695 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 6
+2017-09-01 21:29:51,696 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:29:51,696 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource
+2017-09-01 21:30:28,680 INFO  [main] support.ClassPathXmlApplicationContext (AbstractApplicationContext.java:510)     - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5aaa6d82: startup date [Fri Sep 01 21:30:28 KST 2017]; root of context hierarchy
+2017-09-01 21:30:28,713 INFO  [main] xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:315)     - Loading XML bean definitions from class path resource [spring/application-config.xml]
+2017-09-01 21:30:28,847 INFO  [main] support.PropertySourcesPlaceholderConfigurer (PropertiesLoaderSupport.java:172)     - Loading properties file from class path resource [db/jdbc.properties]
+2017-09-01 21:30:28,857 INFO  [main] support.DefaultListableBeanFactory (DefaultListableBeanFactory.java:596)     - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@56ac3a89: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,sessionFactory,session,datgleDao,memberDao,recipeDao,hoogiDao,tastyDao,categoryDao,gradeDao,scoreDao,faqDao,porceDao,itemDao,jumonDao,developerDao,datgleService,memberService,recipeService,hoogiService,tastyService,categoryService,gradeService,scoreService,faqService,porceService,jumonService,itemService,developerService]; root of factory hierarchy
+2017-09-01 21:30:28,920 INFO  [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:153)     - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-09-01 21:30:28,991 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:497)     - Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+2017-09-01 21:30:29,032 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/datgleMapper.xml]'
+2017-09-01 21:30:29,043 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/MemberMapper.xml]'
+2017-09-01 21:30:29,057 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/RecipeMapper.xml]'
+2017-09-01 21:30:29,068 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/HoogiMapper.xml]'
+2017-09-01 21:30:29,082 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/tastyMapper.xml]'
+2017-09-01 21:30:29,088 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/CategoryMapper.xml]'
+2017-09-01 21:30:29,094 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/GradeMapper.xml]'
+2017-09-01 21:30:29,100 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ScoreMapper.xml]'
+2017-09-01 21:30:29,105 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/FaqMapper.xml]'
+2017-09-01 21:30:29,111 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/PorceMapper.xml]'
+2017-09-01 21:30:29,118 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/JumonMapper.xml]'
+2017-09-01 21:30:29,123 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/ItemMapper.xml]'
+2017-09-01 21:30:29,128 DEBUG [main] spring.SqlSessionFactoryBean (SqlSessionFactoryBean.java:529)     - Parsed mapper file: 'class path resource [mapper/DeveloperMapper.xml]'
+2017-09-01 21:30:29,188 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:97)     - Creating a new SqlSession
+2017-09-01 21:30:29,191 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:148)     - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72] was not registered for synchronization because synchronization is not active
+2017-09-01 21:30:29,197 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:110)     - Fetching JDBC Connection from DataSource
+2017-09-01 21:30:29,198 DEBUG [main] datasource.DriverManagerDataSource (DriverManagerDataSource.java:162)     - Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@210.16.214.203:1521:XE]
+2017-09-01 21:30:29,521 DEBUG [main] transaction.SpringManagedTransaction (SpringManagedTransaction.java:87)     - JDBC Connection [oracle.jdbc.driver.T4CConnection@34e9fd99] will not be managed by Spring
+2017-09-01 21:30:29,526 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==>  Preparing: SELECT * FROM Developer 
+2017-09-01 21:30:29,614 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - ==> Parameters: 
+2017-09-01 21:30:29,642 DEBUG [main] DeveloperMapper.All (BaseJdbcLogger.java:159)     - <==      Total: 6
+2017-09-01 21:30:29,642 DEBUG [main] spring.SqlSessionUtils (SqlSessionUtils.java:191)     - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@223d2c72]
+2017-09-01 21:30:29,643 DEBUG [main] datasource.DataSourceUtils (DataSourceUtils.java:327)     - Returning JDBC Connection to DataSource

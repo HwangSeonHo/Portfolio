@@ -1,0 +1,731 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Lambada Template by WowThemes.net</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="assets/img/favicon.png"/>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='assets/css/edd.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='assets/css/bootstrap.min.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='style.css' type='text/css' media='all'/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Covered+By+Your+Grace'/>
+
+<script type="text/javascript">
+
+
+function recipeList(){
+	r.action="recipe_list?c_no=0";
+	r.submit();
+}
+ function recipeRemove(){
+	 alert("삭제하시겠습니까?");
+	r.method="POST";
+	r.action="recipe_remove_action";
+	r.submit();
+}
+ function recipeModify(){
+	r.method="POST";
+	r.action="recipe_modify_form";
+	r.submit();
+}
+
+/* recipeRemove()
+recipeModify()
+recipeList()
+ */
+</script>
+
+<!-- 댓글 list insert delete 추가 한 부분! -->
+<script type="text/javascript" src='assets/js/httpRequest.js'></script>
+<script type="text/javascript">
+	function getdatgleList(page){
+		document.getElementById('datgleList').innerHTML='';
+		document.getElementById('datglePage').innerHTML='';
+		alert(page);
+		var pageCountPerPage = 5;
+		var rowCountPerPage = 10;
+		var d_filter = "recipe";
+		var selectPage= page+"";
+		var d_groupno = commentform.d_groupno.value;
+
+		var params="pageCountPerPage="+pageCountPerPage+"&rowCountPerPage="+rowCountPerPage+"&d_filter="+d_filter+"&selectPage="+selectPage+""+"&d_groupno="+d_groupno;						
+
+		sendRequest('datgleListJson', params, datgleListDisplay, 'POST');
+		
+	}
+	function datgleListDisplay(){
+		if(xhr.readyState==4){
+			var datgleListJSONText=xhr.responseText;
+			var datgleListJSONObject = JSON.parse(datgleListJSONText);
+			alert(datgleListJSONText);
+			/* 이중 맵		
+			{
+				"0": {
+						"m_no": "1",
+						"m_name": "회원3",
+						"d_date": "2017-08-17",
+						"d_content": "서비스가 좋네요"
+					 },
+				"1": {
+						"m_name": "회원1",
+						"d_date": "2017-08-17",
+						"d_content": "짬뽕 국물이 맛있는 곳"
+					 },
+			}
+			*/
+			
+			//자바스크립트 오브젝트 length 구하는 법
+			var length = Object.keys(datgleListJSONObject).length;
+		 	if(length==1){
+				return;
+			} 
+			
+			var html="<ul>";
+			for(var i=0;i<length-1;i++){	//마지막 9999:resultbean은 빼줌
+				html+=
+					"<li>"+
+					datgleListJSONObject[i].m_name+" "+
+					datgleListJSONObject[i].d_content+" "+
+					datgleListJSONObject[i].d_date+
+					"<input name=\"delete\" type=button id=\"delete\" class=\"delete\" value=\"delete\" onClick='datgleDelete("+datgleListJSONObject[i].d_no+");'>"+
+					"<input name=\"update\" type=button id=\"update\" class=\"update\" value=\"update\" onClick='datgleUpdate("+datgleListJSONObject[i].d_no+");'>"+
+					"</li>";
+			}
+				html+="</ul>";
+		
+			document.getElementById('datgleList').innerHTML=html;
+			
+			var page="<div class=\"col-md-12 pagination\"><div class=\"col-md-12\">";
+			
+			if(datgleListJSONObject[9999].isShowFirst){
+				page+="<a href=\"#;\" onClick='getdatgleList(1);'>first</a>&nbsp;";
+			}
+			if(datgleListJSONObject[9999].isShowPreviousGroup){
+				page+="<a href=\"#;\" onClick='getdatgleList("+datgleListJSONObject[9999].PreviousGroupStartPageNo+");'>◀</a>"; 
+			} 
+			
+			for(i=datgleListJSONObject[9999].StartPageNo;i<=datgleListJSONObject[9999].EndPageNo;i++){
+				
+				page+="<a href=\"#;\" onClick='getdatgleList("+i+");'>"+i+"</a>"+"</font>";
+			
+			} 
+		
+			if(datgleListJSONObject[9999].isShowNextGroup){
+				page+="<a href=\"#;\" onClick='getdatgleList("+datgleListJSONObject[9999].NextGroupStartPageNo+");'>▶</a>";
+			}
+			if(datgleListJSONObject[9999].isShowLast){
+				page+="<a href=\"#;\" onClick='getdatgleList("+datgleListJSONObject[9999].TotalPageCount+");'>last</a>&nbsp;";
+			}
+			page+="</div></div>";
+			
+			document.getElementById('datglePage').innerHTML=page;
+
+			/* showNewsDiv(); */
+		}
+	}
+	function datgleInsert(){
+		var d_title = document.commentform.d_title.value;
+		var d_comment= document.commentform.comment.value; 
+		var d_groupno= document.commentform.d_groupno.value; 
+		var d_step= document.commentform.d_step.value; 
+		var d_filter= document.commentform.d_filter.value; 
+
+		var params="d_title="+d_title+"&d_content="+d_comment+"&d_groupno="+d_groupno+"&d_step="+d_step+"&d_filter="+d_filter;						
+		
+		sendRequest('datgleInsert', params,datgleInserting,'POST');
+	}
+	function datgleInserting(){
+		if(xhr.readyState==4){
+			document.commentform.comment.value='';
+			getdatgleList(1);
+		}
+	}
+	function datgleDelete(d_no){
+		var params="d_no="+d_no+"";
+		document.getElementById('datgleList').innerHTML='';
+		sendRequest('datgleDelete', params,null,'POST');
+		getdatgleList(1);
+	}
+	
+	window.onload=function(){
+		getdatgleList(1);
+		if(${m_point}==1100){
+			alert("실버로 등급이 변경되었습니다.");
+		}else if(${m_point}==2100){
+			alert("골드로 등급이 변경되었습니다.");
+			
+		}else if(${m_point}==3100){
+			alert("플래티넘로 등급이 변경되었습니다.");
+			
+		}else if(${m_point}==4100){
+			alert("다이아로 등급이 변경되었습니다.");
+			
+		}
+	};
+	
+</script>
+
+</head>
+<body>
+<jsp:include page="common_top.jsp"></jsp:include>
+
+		<!-- PAGE HEADER
+		==========================================-->
+		<form name="r" method="POST">
+		<div class="headertitle">
+				<div class="headercontent">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								  <h1><span>Recipe Detail</span></h1>
+								  <h3><span>${recipe.r_title}</span></h3>
+								  <input type="hidden" name="r_no" value="${recipe.r_no}">
+								
+							 </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+		<!-- START CONTAINER
+		==========================================-->
+
+
+		<div class="container">
+			<div class="whiteboxed whiteboxeborder">
+
+			<div class="row">
+				<!--Main Content-->
+				<div class="col-md-8">
+					<div id="primary" class="content-area">
+						<article id="post-30">
+						<img src="${recipe.getR_img()}" alt="">
+						
+						
+						<div class="contentdownloadphp">
+						<br/>
+						<input type="hidden" name="r_no" value="${recipe.r_no}">
+						<div class="wowmetaposts entry-meta">
+												<span class="wowmetadate"><i class="fa fa-clock-o"></i>${recipe.r_date.toString().substring(0,10)}</span>
+												
+												<span class="wowmetaauthor"><i class="fa fa-user"></i>
+													<a href="#">${m_id}</a></span> <span class="wowmetacats"><i
+													class="fa fa-folder-open"></i> <a href="#">13
+														(count)</a></span> <span class="wowmetacommentnumber"><i
+													class="fa fa-comments"></i> <a href="#">${recipe.r_count}</a></span><br/>
+						</div>
+						<br/>
+								${recipe.r_content}
+						<br/><br/><br/>
+				
+								<div class="tagcloud">
+									<c:if test="${m_id==sId}">
+										 <input type="button" onClick="recipeRemove();" rel="tag" value="delete" class="edd-submit button blue"> 
+										<input type="button" onClick="recipeModify();" rel="tag" value="modify" class="edd-submit button blue"> 
+									</c:if>
+									<input type="button" onClick="recipeList();" rel="tag" value="List" class="edd-submit button blue">
+								</div>
+							</form>
+							
+							<!-- <div id="comments" class="comments-area">
+								<div id="respond" class="comment-respond">
+									<h3 id="reply-title" class="comment-reply-title">Questions &amp; Feedback <small><a rel="nofollow" id="cancel-comment-reply-link" href="/demo-lambada/downloads/image-file/#respond" style="display:none;">Cancel Reply</a></small></h3>
+									<form action="#" method="post" id="commentform" class="comment-form">
+										<p class="comment-notes">
+										</p>
+										<div class="row commentrow comment-form-comment">
+											<div class="col-md-12">
+												<label for="comment">Comment</label><textarea id="comment" name="comment" rows="5" aria-required="true"></textarea>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-4 comment-form-author">
+												<label for="author">Name</label><input id="author" name="author" type="text" value="" size="30" aria-required="true">
+											</div>
+											<div class="col-md-4 comment-form-email">
+												<label for="email">E-mail</label><input id="email" name="email" type="text" value="" size="30" aria-required="true">
+											</div>
+											<div class="col-md-4 comment-form-url">
+												<label for="url">Website</label><input id="url" name="url" type="text" value="" size="30">
+											</div>
+										</div>
+										<p class="form-submit">
+											<input name="submit" type="submit" id="submit" class="submit" value="Submit"><input type="hidden" name="comment_post_ID" value="30" id="comment_post_ID">
+										</p>
+										<noscript>
+										</noscript>
+									</form>
+								</div>
+								#respond
+							</div> -->
+						</div>
+						</article>
+					</div>
+				</div>
+				
+				
+
+					<!-- Sidebar (Buy Button)-->
+					<div class="col-md-4 stickthis is_stuck">
+					
+						<div class="sidebar-singledownload" align="left">
+						
+						
+				<!-- 댓글 리스트 부분, uix-pb-price의 주석을 지우면 o대신 v모양으로 뜨는데 리스트가 밀림 -->
+						<p class="comment-notes"></p>
+						<div class="container">
+							<!-- <div class="uix-pb-price"> -->
+								<div class="uix-pb-row">
+									<div class="uix-pb-price-bg-hover uix-pb-price-init-height" >
+										<div class="uix-pb-price-detail" id="datgleList"> 
+											<ul>
+												<li>아직 이 게시물에 댓글이 없어요</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							<!-- </div> -->
+						</div>
+						<!--  -->
+						
+						<div class="row" id="datglePage">	
+						<a href="#;" onClick='getdatgleList(1);'>1</a>
+						<a href="#;" onClick='getdatgleList(2);'>2</a>
+						<a href="#;" onClick='getdatgleList(3);'>3</a>
+						<a href="#;" onClick='getdatgleList(4);'>4</a>
+						<a href="#;" onClick='getdatgleList(5);'>5</a>				
+						</div>
+							
+					<div id="comments" class="comments-area">
+								<div id="respond" class="comment-respond">
+									<!-- <h3 id="reply-title" class="comment-reply-title" align="left">Questions &amp; Feedback <small><a rel="nofollow" id="cancel-comment-reply-link" href="/demo-lambada/downloads/image-file/#respond" style="display:none;">Cancel Reply</a></small></h3> -->
+									<form method="post" id="commentform" class="comment-form" name="commentform">
+										<p class="comment-notes">
+										</p>
+										<div class="row commentrow comment-form-comment">
+										<div class="col-md-6" align="left">
+											<label for="comment" ><font size="5px">Comment</font></label>
+											<!-- <label for="author">id</label><input id="author" name="author" type="text" value=""  size="15" aria-required="true"> -->
+										</div>
+											<div class="col-md-12" align="left">
+												
+												<textarea id="comment" name="comment" rows="5" aria-required="true"></textarea>
+											
+											</div>
+											
+										</div>
+										<!-- <div class="row">
+											<div class="col-md-4 comment-form-author">
+												<label for="author">Name</label><input id="author" name="author" type="text" value="" size="30" aria-required="true">
+											</div>
+											<div class="col-md-4 comment-form-email">
+												<label for="email">E-mail</label><input id="email" name="email" type="text" value="" size="30" aria-required="true">
+											</div>
+											
+										</div> -->
+										
+							<!-- 댓글 insert 바꾼 부분! -->
+										<p class="form-submit">
+											<input name="submit" type=button id="submit" class="submit" value="Submit"
+												   onClick='datgleInsert();'>
+											<input type="hidden" name="comment_post_ID" value="43" id="comment_post_ID">
+											<input type="hidden" name="comment_parent" id="comment_parent"
+												value="0">
+										
+										</p>
+											<input type="hidden" name="d_groupno" id="d_groupno" value="${recipe.r_no}">
+											<input type="hidden" name="d_title" id="d_title" value="제목 없음">
+											<input type="hidden" name="d_step" id="d_step" value="0">
+											<input type="hidden" name="d_filter" id="d_filter" value="recipe">
+										<noscript></noscript>
+							<!--  -->
+									</form>
+									
+								</div>
+								<!-- #respond -->
+							</div>
+						</div>
+					</div>
+					<!-- End Sidebar-->
+
+				</div> <!-- /.row-->
+
+			<!-- Related Items-->
+				<section class="lambada homepopularproducts">
+				
+					<div class="clear text-center">
+						<a href="recipe_list?c_no=0" class="view-all">
+						<h2 class="maintitle">
+						popular Post <span>Browse all</span>
+						</h2>
+						</a>
+					</div>
+					
+					<div class="sectionpopularitems clear">
+					<c:forEach var="list" items="${listByCount}" varStatus="status">
+						<div class="wowitemboxinner" align="center">
+							<div class="imagearea">
+								<img src="${list.getR_img()}" alt="">
+								<div class="caption">
+									<div class="blur">
+									</div>
+									<div class="caption-text">
+										<div class="captionbuttons">
+											<a href="recipe_detail?r_no=${list.r_no}" class="captiondetails"><i class="fa fa-link"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="notesarea">
+								<a href="product.jsp" title="City Photo">
+								<h2>${list.r_title}</h2>
+								</a>
+								<div class="description">
+									<p>
+										${list.r_date.toString().substring(0,10)} 
+									</p>
+								</div>
+							
+							<!-- 	<div class="notesbottom variable">
+									<div class="price fleft">
+										 $3.99 - $19.99
+									</div>
+									<div class="cart fright">
+										<a href="#" class="edd-submit button green">Purchase</a>
+									</div>
+										<div class="clearfix">
+										</div>
+									</div> -->
+								</div>
+							</div>
+						</c:forEach>
+						
+						<!-- .wowitemboxinner-->
+						<!-- <div class="wowitemboxinner">
+							<div class="imagearea">
+								<img src="assets/img/demo/d7-1.jpg" alt="">
+								<div class="caption">
+									<div class="blur">
+									</div>
+									<div class="caption-text">
+										<div class="captionbuttons">
+											<a href="product.jsp" class="captiondetails"><i class="fa fa-link"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="notesarea">
+								<a href="product.jsp" title="Some Plugin">
+								<h2>Some Plugin</h2>
+								</a>
+								<div class="description">
+									<p>
+										 This is a short excerpt to generally describe what the item is about.
+									</p>
+								</div>
+								<div class="notesbottom">
+									<div class="price fleft">
+										 $45.00
+									</div>
+									<div class="cart fright">
+										<a href="#" class="edd-submit button green">Purchase</a>
+									</div>
+									<div class="clearfix">
+									</div>
+								</div>
+							</div>
+						</div>
+						.wowitemboxinner
+						<div class="wowitemboxinner">
+							<div class="imagearea">
+								<img src="assets/img/demo/d4-1.jpg" alt="">
+								<div class="caption">
+									<div class="blur">
+									</div>
+									<div class="caption-text">
+										<div class="captionbuttons">
+											<a href="product.jsp" class="captiondetails"><i class="fa fa-link"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="notesarea">
+								<a href="product.jsp" title="Digital Flyer">
+								<h2>Digital Flyer</h2>
+								</a>
+								<div class="description">
+									<p>
+										 This is a short excerpt to generally describe what the item is about.
+									</p>
+								</div>
+								<div class="notesbottom variable">
+									<div class="price fleft">
+										 $14.99 - $19.99
+									</div>
+									<div class="cart fright">
+										<a href="#" class="edd-submit button green">Purchase</a>
+									</div>
+									<div class="clearfix">
+									</div>
+								</div>
+							</div>
+						</div>
+						.wowitemboxinner
+						<div class="wowitemboxinner">
+							<div class="imagearea">
+								<img src="assets/img/demo/d3-1-1.jpg" alt="">
+								<div class="caption">
+									<div class="blur">
+									</div>
+									<div class="caption-text">
+										<div class="captionbuttons">
+											<a href="product.jsp" class="captiondetails"><i class="fa fa-link"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="notesarea">
+								<a href="product.jsp" title="Astrology E-book">
+								<h2>Astrology E-book</h2>
+								</a>
+								<div class="description">
+									<p>
+										 This is a short excerpt to generally describe what the item is about.
+									</p>
+								</div>
+								<div class="notesbottom variable">
+									<div class="price fleft">
+										 $11.99 - $19.99
+									</div>
+									<div class="cart fright">
+										<a href="#" class="edd-submit button green">Purchase</a>
+									</div>
+									<div class="clearfix">
+									</div>
+								</div>
+							</div>
+						</div>
+						.wowitemboxinner
+						<div class="wowitemboxinner">
+							<div class="imagearea">
+								<img src="assets/img/demo/d5-3.jpg" alt="">
+								<div class="caption">
+									<div class="blur">
+									</div>
+									<div class="caption-text">
+										<div class="captionbuttons">
+											<a href="product.jsp" class="captiondetails"><i class="fa fa-link"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="notesarea">
+								<a href="product.jsp" title="Menu Brochure">
+								<h2>Menu Brochure</h2>
+								</a>
+								<div class="description">
+									<p>
+										 This is a short excerpt to generally describe what the item is about.
+									</p>
+								</div>
+								<div class="notesbottom">
+									<div class="price fleft">
+										 $18.00
+									</div>
+									<div class="cart fright">
+										<a href="#" class="edd-submit button green">Purchase</a>
+									</div>
+									<div class="clearfix">
+									</div>
+								</div>
+							</div>
+						</div>
+						end wowitemboxinner
+						.wowitemboxinner
+						<div class="wowitemboxinner">
+							<div class="imagearea">
+								<img src="assets/img/demo/d3-4.jpg" alt=""/>
+								<div class="caption">
+									<div class="blur">
+									</div>
+									<div class="caption-text">
+										<div class="captionbuttons">
+											<a href="product.jsp" class="captiondetails"><i class="fa fa-link"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="notesarea">
+								<a href="product.jsp" title="Image File">
+								<h2>Image File</h2>
+								</a>
+								<div class="description">
+									<p>
+										 This is a short excerpt to generally describe what the item is about.
+									</p>
+								</div>
+								<div class="notesbottom variable">
+									<div class="price fleft">
+										 $5.00 - $19.99
+									</div>
+									<div class="cart fright">
+										<a href="#" class="edd-submit button green">Purchase</a>
+									</div>
+									<div class="clearfix">
+									</div>
+								</div>
+							</div>
+						</div> -->
+						<!-- .wowitemboxinner-->
+					
+					</div>
+					<!-- .wowitemboxlist-->
+					</section>
+
+			
+
+
+		</div> <!-- /.container-->
+
+		<!-- / END CONTAINER
+		==========================================-->
+
+	 </div> <!-- end /.wrapcontent -->
+
+	<!-- CALL TO ACTION
+		==========================================-->
+	<div id="lambadacalltoaction" class="actionbeforefooter text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					 This optional area appears before footer. Use it for discounts, messages, or anything else! <a target="_blank" class="actionbutton" href="index.jsp"><i class="fa fa-send-o"></i> Call to Action </a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- FOOTER
+		==========================================-->
+	<footer id="lambadafooter" class="themefooter section medium-padding bg-graphite">
+	<div class="container">
+		<div class="section-inner row">
+			<div class="column column-1 col-sm-3 rightbd">
+				<div class="widgets">
+					<div class="widget widget_text" id="text-2">
+						<div class="widget-content">
+							<div class="textwidget">
+								<h2><a target="_blank" class="navbar-brand-middle" href="index.jsp">Lambada</a></h2>
+								<p>
+									 &nbsp;
+								</p>
+								<p>
+									 You're currently viewing Lambada demo, an ecommerce HTML template created by <a href="https://www.wowthemes.net/">WowThemes.net.</a>
+								</p>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /footer-a -->
+			<div class="column column-1 col-sm-3 rightbd">
+				<div class="widgets">
+					<div class="widget widget_edd_categories_tags_widget">
+						<div class="widget-content">
+							<h3 class="widget-title">Products</h3>
+							<ul class="edd-taxonomy-widget">
+								<li><a href="category-book.jsp">book</a> (3) </li>
+								<li><a href="category-logos.jsp">logos</a> (6) </li>
+								<li><a href="category-pdf.jsp">pdf</a> (6) </li>
+								<li><a href="category-photos.jsp">photos</a> (3) </li>
+							</ul>
+						</div>
+						<div class="clear">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /footer-b -->
+			<div class="column column-1 col-sm-3">
+				<div class="widgets">
+					<div class="widget widget_recent_comments">
+						<div class="widget-content">
+							<h3 class="widget-title">Comments</h3>
+							<ul id="recentcomments">
+								<li>Wandikbo BL on <a href="#">Be cool, love nature</a></li>
+								<li>Laura on <a href="#">Be cool, love nature</a></li>
+								<li>Maria on <a href="#">Women & Charity</a></li>
+							</ul>
+						</div>
+						<div class="clear">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /footer-c -->
+			<div class="column column-1 col-sm-3">
+				<div class="widgets">
+					<div class="widget widget_text" id="text-3">
+						<div class="widget-content">
+							<h3 class="widget-title">Follow Us</h3>
+							<div class="textwidget">
+								<p>
+									<a href="#"><i class="fa fa-facebook"></i> Like us on Facebook</a>
+								</p>
+								<p>
+									<a href="#"><i class="fa fa-twitter"></i> Follow us on Twitter</a>
+								</p>
+								<p>
+									<a href="#"><i class="fa fa-google-plus"></i> Visit on Google Plus</a>
+								</p>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /footer-d -->
+			<div class="clearfix">
+			</div>
+		</div>
+		<!-- /section-inner -->
+	</div>
+	<!-- /container -->
+	</footer>
+	<!-- /footer -->
+	<div class="sectioncredits">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<span class="credits-left fleft">
+					2017 짤 All Rights Reserved, WowThemes.net </span>
+					<ul class="footermenu fright">
+						<li class="current-menu-item"><a href="index.jsp">Home</a></li>
+						<li><a href="shop.jsp">Shop</a></li>
+						<li><a href="blog.jsp">Blog</a></li>
+						<li><a href="contact.jsp">Contact</a></li>
+					</ul>
+				</div>
+				<div class="clear">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- scripts -->
+	<script type='text/javascript' src='assets/js/jquery.js'></script>
+	<script type='text/javascript' src='assets/js/bootstrap.min.js'></script>
+	<script type='text/javascript' src='assets/js/masonry.js'></script>
+	<script type='text/javascript' src='assets/js/carousel.js'></script>
+	<script type='text/javascript' src='assets/js/init.js'></script>
+	<!-- end scripts -->
+</div>
+<!-- end /.wrapall -->
+</body>
+</html>

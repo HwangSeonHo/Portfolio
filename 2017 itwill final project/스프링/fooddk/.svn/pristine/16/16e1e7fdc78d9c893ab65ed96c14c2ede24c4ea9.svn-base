@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<typeAliases>
+		<typeAlias type="fooddk.paging.ListResultBean_filter" alias="ListResultBean_filter"/>
+		<typeAlias type="fooddk.paging.ListResultBean" alias="ListResultBean"/>
+		<typeAlias type="fooddk.paging.ListResultBean_hoogi" alias="ListResultBean_hoogi"/>
+		<typeAlias type="fooddk.domain.Datgle" alias="Datgle"/>
+		<typeAlias alias="Member" type="fooddk.domain.Member"/>
+		<typeAlias alias="Recipe" type="fooddk.domain.Recipe"/>
+		<typeAlias alias="Hoogi" type="fooddk.domain.Hoogi"/>
+		<typeAlias alias="Tasty" type="fooddk.domain.Tasty"/>
+		<typeAlias alias="Category" type="fooddk.domain.Category"/>
+		<typeAlias alias="Grade" type="fooddk.domain.Grade"/>
+		<typeAlias alias="Score" type="fooddk.domain.Score"/>
+		<typeAlias alias="Faq" type="fooddk.domain.Faq"/>
+	</typeAliases>	
+	
+	<!--
+	<mappers>
+	
+	</mappers>  -->
+	
+</configuration>
+
+
+
+
+
+
+
+
+

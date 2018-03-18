@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.GradeMapper">
+	<insert id="insertGrade" parameterType="Grade">
+	insert into Grade (g_no, g_grade) values (g_no_seq.nextval,#{g_grade})
+	</insert>
+	
+	<update id="updateGrade" parameterType="Grade">
+		update Grade set g_grade=#{g_grade} where g_no=#{g_no} 
+	</update>
+	
+	<delete id="deleteGrade" parameterType="java.lang.Integer">
+		delete from Grade where g_no=#{g_no}
+	</delete>
+	
+	<select id="selectGradeOne" resultType="Grade">
+		select * from Grade where g_no=#{g_no}
+	</select>
+	
+	<select id="selectGradeAll" resultType="Grade">
+		select * from Grade
+	</select>
+</mapper>

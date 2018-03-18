@@ -1,0 +1,230 @@
+package fooddk.service.member;
+
+import java.util.List;
+
+import fooddk.dao.member.MemberDao;
+import fooddk.dao.member.MemberNotFoundException;
+import fooddk.dao.member.PasswordNotFoundException;
+import fooddk.domain.Member;
+
+public class MemberServiceImpl implements MemberService{
+
+	
+	MemberDao memberDao;
+	
+	public void setMemberDao(MemberDao memberDao) {
+		this.memberDao = memberDao;
+	}
+	
+	/*
+	 * 회원가입 ID중복체크
+	 */
+	
+	public String insertMember(Member member) {
+		String insertSuccess = "";
+		String mId = member.getM_id();
+		Member insertM = memberDao.selectMemberCheckId(mId);
+
+		if (insertM == null) {
+			memberDao.insertMember(member);
+			insertSuccess = "회원가입이 완료 되었습니다.";
+
+		} else if (insertM.getM_id().equals(member.getM_id())) {
+			insertSuccess = "아이디가 중복 되었습니다.";
+
+		}
+		return insertSuccess;
+
+	}
+
+	/*
+	 * 로그인
+	 */
+	public String loginMember(Member member) throws MemberNotFoundException, PasswordNotFoundException{
+
+		String loginSuccess = "";
+		String mId = member.getM_id();
+		Member login = memberDao.selectMemberCheckId(mId);
+		
+		if (login == null) {
+			throw new MemberNotFoundException(mId+"가 존재하지 않습니다");
+		} else if (!(login.isPassMath(member.getM_pw()))) {
+			throw new PasswordNotFoundException("비밀번호가 일치하지 않습니다");
+			
+		}else if(member.isPassMath(member.getM_pw())){
+			loginSuccess = "로그인 성공";
+		}
+		return loginSuccess;
+
+	}
+
+	/*
+	 * 탈퇴,삭제
+	 */
+	public String deleteMember(Member member) throws PasswordNotFoundException {
+		String deleteSuccess = "";
+
+		String mId = member.getM_id();
+		Member delete = memberDao.selectMemberCheckId(mId);
+
+		if (delete.getM_pw().equals(member.getM_pw())) {
+			memberDao.deleteMemberByNo(delete.getM_no());
+			deleteSuccess = "삭제 성공";
+		} else  {
+			throw new PasswordNotFoundException("비밀번호가 일치하지 않습니다");
+
+		}
+
+		return deleteSuccess;
+
+	}
+	/*
+	 * 수정
+	 */
+
+	public int updateMember(Member member) {
+
+		return memberDao.updateMember(member);
+
+	}
+	
+	@Override
+	public int updateManagerByno(Member member) {
+		return memberDao.updateManagerByno(member);
+	}
+
+	/*
+	 * 회원 전체 보기
+	 */
+	public List<Member> selectMemberAll() {
+
+		return memberDao.selectAllMember();
+	}
+
+	/*
+	 * 내정보 보기
+	 */
+	public Member selectMemberMyInfo(Member member) {
+
+		Member id = memberDao.selectMemberCheckId(member.getM_id());
+		System.out.println("id"+id);
+		System.out.println("member"+member);
+		if (id.getM_pw().equals(member.getM_pw())) {
+			Member d = memberDao.selectMemberMyInfo(id.getM_no());
+			System.out.println("d"+d);
+			return d;
+		} else {
+
+			return null;
+		}
+
+	}
+	/*
+	회원 번호로 찾기
+	 */
+	
+	public Member selectMemberMyNo(int no) {
+		
+		
+			
+			return memberDao.selectMemberMyInfo(no);
+		
+		
+	}
+
+	/*
+	 * 아이디 찾기
+	 */
+	public Member selectMemberById(String name) {
+
+		Member findId = memberDao.selectMemberById(name);
+		System.out.println("findIdddd"+findId);
+		if (findId == null) {
+			return null;
+		} else {
+			return memberDao.selectMemberById(name);
+		}
+
+	}
+
+	/*
+	 * 비밀번호 찾기
+	 */
+	public Member selectMemberByPw(Member member) {
+
+		Member id = memberDao.selectMemberCheckId(member.getM_id());
+		Member name = memberDao.selectMemberCheckId(member.getM_name());
+		Member birth = memberDao.selectMemberCheckId(member.getM_birth());
+
+		if (id == null && name == null && birth == null) {
+
+			return null;
+
+		} else {
+			return memberDao.selectMemberByPw(member);
+		}
+
+	}
+	
+	/*
+	    * 아이디로 찾기
+	    */
+	   public Member selectMemberCheckId(String m_id){
+	      Member member = memberDao.selectMemberCheckId(m_id);
+	      if(member ==null){
+	         return null;
+	      }else{
+	         return member;
+	      }
+	   }
+	   
+	   public Boolean selectMemberIDCheck(String m_id){
+		   Member member = memberDao.selectMemberCheckId(m_id);
+		   if(member==null){
+			   return true;
+		   }else{
+			   return false;
+		   }
+	   }
+	   
+	   /*
+	       * POINT UPDATE
+	       */
+	   @Override
+	   public int updatePointByno(int mNo) {
+	      
+	      return memberDao.updatePointByno(mNo);
+	   }
+
+	   /*
+	    * 포인트에 따른 등급 변경
+	    */
+	@Override
+	public int updateGradeBypoint1() {
+		return memberDao.updateGradeBypoint1();
+	}
+
+	@Override
+	public int updateGradeBypoint2() {
+		return memberDao.updateGradeBypoint2();
+	}
+
+	@Override
+	public int updateGradeBypoint3() {
+		return memberDao.updateGradeBypoint3();
+	}
+
+	@Override
+	public int updateGradeBypoint4() {
+		return memberDao.updateGradeBypoint4();
+	}
+
+	@Override
+	public int updateGradeBypoint5() {
+		return memberDao.updateGradeBypoint5();
+	}
+
+
+	   
+
+}

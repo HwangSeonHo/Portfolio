@@ -1,0 +1,118 @@
+package fooddk.dao.tasty;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import fooddk.domain.Tasty;
+import fooddk.paging.ListPageConfigBean;
+import fooddk.paging.ListResultBean_tasty;
+
+public class TastyDaoImpl implements TastyDao {
+	
+	public static final String namespace = "mapper.tastyMapper.";
+	
+	private SqlSession sqlSession; 
+	
+	public TastyDaoImpl() {
+	}
+	
+
+	public SqlSession getSqlSession() {
+		return sqlSession;
+	}
+
+
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}
+
+
+	@Override
+	public int insert(Tasty tasty) {
+		sqlSession.insert(namespace + "insert",tasty);
+		return tasty.getT_no();
+	}
+
+	@Override
+	public int updateByNo(Tasty tasty) {
+		return sqlSession.update(namespace + "updateByNo", tasty);
+	}
+
+	@Override
+	public int updateCount(int t_no) {
+		return sqlSession.update(namespace+"updateCount",t_no);
+	}
+
+	@Override
+	public int deleteByNo(int t_no) {
+		return sqlSession.delete(namespace+ "deleteByNo",t_no);
+	}
+
+	@Override
+	public List<Tasty> selectAll() {
+		return sqlSession.selectList(namespace+"selectAll");
+	}
+
+	@Override
+	public Tasty selectByNo(int t_no) {
+		return sqlSession.selectOne(namespace+"selectByNo", t_no);
+	}
+	
+	@Override
+	public List<Tasty> selectList(int start,int end) {
+		ListResultBean_tasty listResult = new ListResultBean_tasty();
+		listResult.setStartRowNum(start);
+		listResult.setEndRowNum(end);
+		return sqlSession.selectList(namespace+"selectList", listResult);
+	}
+
+	@Override
+	public List<Tasty> selectCount(int start,int end) {
+		ListResultBean_tasty listResult = new ListResultBean_tasty();
+		listResult.setStartRowNum(start);
+		listResult.setEndRowNum(end);
+		return sqlSession.selectList(namespace+"selectCount", listResult);
+	}
+
+	@Override
+	public List<Tasty> selectDate(int start,int end) {
+		ListResultBean_tasty listResult = new ListResultBean_tasty();
+		listResult.setStartRowNum(start);
+		listResult.setEndRowNum(end);
+		return sqlSession.selectList(namespace+"selectDate", listResult);
+	}
+
+	@Override
+	public String selectImgByNo(int t_no) {
+		return sqlSession.selectOne(namespace+"selectImgByNo", t_no);
+	}
+
+	@Override
+	public String selectAddressByNo(int t_no) {
+		return sqlSession.selectOne(namespace+"selectAddressByNo",t_no);
+	}
+
+	@Override
+	public List<Tasty> selectByTitle(String t_title) {
+		return sqlSession.selectList(namespace+"selectByTitle",t_title);
+	}
+
+
+	@Override
+	public int countAll() {
+		return sqlSession.selectOne(namespace+"countAll");
+	}
+
+
+	@Override
+	public List<Tasty> selectCountMain() {
+		return sqlSession.selectOne(namespace+"selectCountMain");
+		
+	}
+	
+	
+
+}

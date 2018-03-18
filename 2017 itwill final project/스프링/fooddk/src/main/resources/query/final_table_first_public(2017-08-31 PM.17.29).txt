@@ -1,0 +1,358 @@
+/** 테이블 드랍하기 **/
+
+DROP TABLE Hoogi cascade constraints;
+DROP TABLE Datgle cascade constraints;
+DROP TABLE Score cascade constraints;
+DROP TABLE Tasty cascade constraints;
+DROP TABLE Recipe cascade constraints;
+DROP TABLE Member cascade constraints;
+DROP TABLE Category cascade constraints;
+DROP TABLE Grade cascade constraints;
+drop table item cascade constraints;
+drop table jumon cascade constraints;
+drop table porce cascade constraints;
+drop table faq cascade constraints;
+
+/**sequence 드랍하기 **/
+drop sequence c_no_seq;
+drop sequence d_no_seq;
+drop sequence g_no_seq;
+drop sequence m_no_seq;
+drop sequence r_no_seq;
+drop sequence h_no_seq;
+drop sequence s_no_seq;
+drop sequence t_no_seq;
+drop sequence i_no_seq;
+drop sequence j_no_seq;
+drop sequence p_no_seq;
+drop sequence f_no_seq;
+
+commit;
+
+/**********************************/
+/* Table Name: Grade */
+/**********************************/
+CREATE TABLE Grade(
+      g_no NUMBER(10) PRIMARY KEY,
+      g_grade VARCHAR2(20) DEFAULT 'Bronze' NOT NULL
+);
+
+/**********************************/
+/* Table Name: Category */
+/**********************************/
+CREATE TABLE Category(
+      c_no NUMBER(10) PRIMARY KEY,
+      c_kind VARCHAR2(10) NOT NULL
+);
+
+/**********************************/
+/* Table Name: Member */
+/**********************************/
+CREATE TABLE Member(
+      m_no NUMBER(10) PRIMARY KEY,
+      m_name VARCHAR2(20) NOT NULL,
+      m_id VARCHAR2(20) NOT NULL,
+      m_pw VARCHAR2(20) NOT NULL,
+      m_birth VARCHAR2(10),
+      m_gender VARCHAR2(20) NOT NULL,
+      m_point NUMBER(10) default 0,
+      m_manager VARCHAR2(10) default 0,
+      g_no NUMBER(10) default 1,
+      c_no NUMBER(10)
+);
+
+/**********************************/
+/* Table Name: Recipe */
+/**********************************/
+CREATE TABLE Recipe(
+      r_no NUMBER(10) PRIMARY KEY,
+      r_title VARCHAR2(200) NOT NULL,
+      m_no NUMBER(10) NOT NULL,
+      r_content VARCHAR2(500),
+      r_date DATE DEFAULT sysdate,
+      r_img VARCHAR2(200),
+      c_no NUMBER(10) NOT NULL,
+      r_count NUMBER(10) DEFAULT 0 NOT NULL
+);
+
+/**********************************/
+/* Table Name: Tasty */
+/**********************************/
+CREATE TABLE Tasty(
+      t_no NUMBER(10) PRIMARY KEY,
+      t_title VARCHAR2(200),
+      t_content VARCHAR2(500),
+      t_date DATE DEFAULT sysdate NOT NULL,
+      t_img VARCHAR2(200),
+      t_phone VARCHAR2(15),
+      t_time VARCHAR2(200),
+      t_address VARCHAR2(200),
+      t_location VARCHAR2(30),
+      t_count NUMBER(10) DEFAULT 0 NOT NULL,
+      c_no NUMBER(10)
+);
+
+/**********************************/
+/* Table Name: Score */
+/**********************************/
+CREATE TABLE Score(
+      s_no NUMBER(10) PRIMARY KEY,
+      t_no NUMBER(10),
+      m_no NUMBER(10),
+      s_star NUMBER(10) DEFAULT 0 NOT NULL
+);
+
+/**********************************/
+/* Table Name: Datgle */
+/**********************************/
+CREATE TABLE Datgle(
+      d_no NUMBER(10) PRIMARY KEY,
+      d_groupNo NUMBER(10) NOT NULL,
+      d_step NUMBER(10) NOT NULL,
+      d_filter VARCHAR2(20) NOT NULL,
+      d_content VARCHAR2(100),
+      m_no NUMBER(10),
+      d_title VARCHAR2(30) NOT NULL,   
+      d_date DATE DEFAULT sysdate NOT NULL
+);
+
+/**********************************/
+/* Table Name: Faq */
+/**********************************/
+CREATE TABLE Faq(
+      f_no NUMBER(10) PRIMARY KEY,
+      f_title VARCHAR2(4000),
+      m_no NUMBER(10),
+      f_content VARCHAR2(4000)      
+);
+
+/**********************************/
+/* Table Name: Hoogi */
+/**********************************/
+CREATE TABLE Hoogi(
+      h_no NUMBER(10) PRIMARY KEY,
+      h_title VARCHAR2(200),
+      m_no NUMBER(10),
+      h_content VARCHAR2(500),
+      h_date DATE DEFAULT sysdate NOT NULL,
+      h_img VARCHAR2(200),
+      t_no NUMBER(10),
+      c_no NUMBER(10),
+      h_count NUMBER(10) DEFAULT 0 
+);
+/**********************************/
+/* Table Name: jumon */
+/**********************************/
+CREATE TABLE jumon(
+      j_no NUMBER(10) PRIMARY KEY,
+      seat_no NUMBER(10),
+      i_no NUMBER(10)
+);
+/**********************************/
+/* Table Name: porce */
+/**********************************/
+CREATE TABLE porce(
+      p_no NUMBER(10) PRIMARY KEY,
+      t_no NUMBER(10),
+      j_no NUMBER(10)
+);
+/**********************************/
+/* Table Name: Item */
+/**********************************/
+CREATE TABLE Item(
+      i_no NUMBER(10) PRIMARY KEY,
+      i_name VARCHAR(100),
+      i_price NUMBER(10)
+);
+
+commit;
+
+/**********************************/
+/* Key 참조하기 */
+/**********************************/
+ALTER TABLE Member ADD CONSTRAINT IDX_Member_FK0 FOREIGN KEY (g_no) REFERENCES Grade (g_no);
+ALTER TABLE Member ADD CONSTRAINT IDX_Member_FK1 FOREIGN KEY (c_no) REFERENCES Category (c_no);
+ALTER TABLE Recipe ADD CONSTRAINT IDX_Recipe_FK0 FOREIGN KEY (m_no) REFERENCES Member (m_no) on delete cascade;
+ALTER TABLE Recipe ADD CONSTRAINT IDX_Recipe_FK1 FOREIGN KEY (c_no) REFERENCES Category (c_no);
+ALTER TABLE Tasty ADD CONSTRAINT IDX_Tasty_FK0 FOREIGN KEY (c_no) REFERENCES Category (c_no);
+ALTER TABLE Score ADD CONSTRAINT IDX_Score_FK0 FOREIGN KEY (t_no) REFERENCES Tasty (t_no);
+ALTER TABLE Score ADD CONSTRAINT IDX_Score_FK1 FOREIGN KEY (m_no) REFERENCES Member (m_no) on delete cascade;
+ALTER TABLE Datgle ADD CONSTRAINT IDX_Datgle_FK0 FOREIGN KEY (m_no) REFERENCES Member (m_no) on delete cascade;
+ALTER TABLE Faq ADD CONSTRAINT IDX_Faq_FK0 FOREIGN KEY (m_no) REFERENCES Member (m_no);
+ALTER TABLE Hoogi ADD CONSTRAINT IDX_Hoogi_FK0 FOREIGN KEY (t_no) REFERENCES Tasty (t_no);
+ALTER TABLE Hoogi ADD CONSTRAINT IDX_Hoogi_FK1 FOREIGN KEY (c_no) REFERENCES Category (c_no);
+ALTER TABLE Hoogi ADD CONSTRAINT IDX_Hoogi_FK2 FOREIGN KEY (m_no) REFERENCES Member (m_no) on delete cascade;
+ALTER TABLE porce ADD CONSTRAINT IDX_porce_FK0 FOREIGN KEY (t_no) REFERENCES Tasty (t_no);
+ALTER TABLE porce ADD CONSTRAINT IDX_porce_FK1 FOREIGN KEY (j_no) REFERENCES jumon (j_no);
+ALTER TABLE Jumon ADD CONSTRAINT IDX_Jumon_FK0 FOREIGN KEY (i_no) REFERENCES item (i_no);
+
+commit;
+
+/**** category 시퀀스 *****/
+create sequence c_no_seq  increment by 1 start with 1;
+
+/**** grade 시퀀스 *****/
+create sequence g_no_seq increment by 1 start with 1;
+
+/**** member 시퀀스 *****/
+create sequence m_no_seq  increment by 1 start with 1;
+
+/**** recipe 시퀀스 & insert *****/
+create sequence r_no_seq  increment by 1 start with 1;
+
+/**** datgle 시퀀스 & insert *****/
+create sequence d_no_seq  increment by 1 start with 1;
+
+/**** tasty 시퀀스 & insert *****/
+create sequence t_no_seq increment by 1 start with 1;
+
+/**** scroe 시퀀스 & insert *****/
+create sequence s_no_seq increment by 1 start with 1;
+
+/**** hoogi 시퀀스 & insert *****/
+create sequence h_no_seq increment by 1 start with 1;
+
+/**** porce 시퀀스 & insert *****/
+create sequence p_no_seq increment by 1 start with 1;
+
+/**** jumon 시퀀스 & insert *****/
+create sequence j_no_seq increment by 1 start with 1;
+
+/**** item 시퀀스 & insert *****/
+create sequence i_no_seq increment by 1 start with 1;
+
+/**** Faq 시퀀스 & insert *****/
+create sequence f_no_seq increment by 1 start with 1;
+
+commit;
+
+/**** category 초기 데이터 ****/
+insert into category values (c_no_seq.nextval,'한식');
+insert into category values (c_no_seq.nextval,'일식');
+insert into category values (c_no_seq.nextval,'중식');
+insert into category values (c_no_seq.nextval,'양식');
+insert into category values (c_no_seq.nextval,'기타');
+
+commit;
+
+/**** grade 초기 데이터 ****/
+insert into grade values (g_no_seq.nextval,'브론즈');
+insert into grade values (g_no_seq.nextval,'실버');
+insert into grade values (g_no_seq.nextval,'골드');
+insert into grade values (g_no_seq.nextval,'플래티넘');
+insert into grade values (g_no_seq.nextval,'다이아');
+
+commit;
+
+/**** member 초기 데이터 ****/
+insert into member  values (m_no_seq.nextval,'회원1','ghldnjs1','ghldnjs1','900808','남',100,1,1,1);
+insert into member  values (m_no_seq.nextval,'회원2','ghldnjs2','ghldnjs2','911121','여',100,1,2,2);
+insert into member  values (m_no_seq.nextval,'회원3','ghldnjs3','ghldnjs3','920222','남',100,1,3,2);
+insert into member  values (m_no_seq.nextval,'회원4','ghldnjs4','ghldnjs4','930407','여',100,1,4,3);
+insert into member  values (m_no_seq.nextval,'회원5','ghldnjs5','ghldnjs5','940506','남',100,1,5,4);
+insert into member  values (m_no_seq.nextval,'회원6','ghldnjs6','ghldnjs6','951022','여',100,1,5,5);
+insert into member  values (m_no_seq.nextval,'sun','sun','sun','910122','여',10000,1,5,5);
+
+commit;
+
+/**** recipe 초기 데이터 ****/
+insert into recipe values (r_no_seq.nextval,'감자조림',1,'감자를 조린다',sysdate,'/감자조림.jpg',1,0);
+insert into recipe values (r_no_seq.nextval,'피짜',3,'빵에 치즈 올림',sysdate,'/피짜.jpg',4,3);
+insert into recipe values (r_no_seq.nextval,'불타는김치찌개',6,'김치 넣고 끓임',sysdate,'/김치찌개.jpg',1,200);
+insert into recipe values (r_no_seq.nextval,'대충짜장면',4,'면에 소스 부음',sysdate,'/대충짜장면.jpg',3,32);
+insert into recipe values (r_no_seq.nextval,'고급진라면',5,'라면에 비싼 재료를 넣고 끓임',sysdate,'/라면.jpg',5,0);
+insert into recipe values (r_no_seq.nextval,'상어초밥',2,'상어를 잡아서 회를 뜬다',sysdate,'/상어초밥.jpg',2,2151);
+
+commit;
+
+/**** datgle 초기 데이터 ****/
+insert into datgle values (d_no_seq.nextval,0,0,'hoogi','짬뽕 국물이 맛있는 곳',1,'여기다',sysdate);
+insert into datgle values (d_no_seq.nextval,0,0,'hoogi','서비스가 좋네요',3,'만족',sysdate);
+insert into datgle values (d_no_seq.nextval,0,0,'recipe','여기 레시피로 만들고 버렸어요',2,'ㅡㅡ',sysdate);
+insert into datgle values (d_no_seq.nextval,0,0,'recipe','상어는 어디서 잡나요?',4,'재료가',sysdate);
+
+commit;
+
+
+
+--<!--한식 5개 -->
+insert into tasty values (t_no_seq.nextval,'가정식밥집미미','떡갈비정식, 돈가스, 가정식, 함박스테이크, 덮밥',sysdate,'pciture/img.jpg','070-4154-0768','11:30 - 21:00','서울 마포구 와우산로29길 14-10','37.555445, 126.929166',0,1);
+insert into tasty values (t_no_seq.nextval,'문숙이미나리식당','보쌈, 도시락, 돼지불백, 불고기백반, 술집',sysdate,'pciture/img.jpg','02-322-2827','11:30 - 22:00','서울 마포구 잔다리로6길 34-5','37.562231, 126.926403',0,1);
+insert into tasty values (t_no_seq.nextval,'황소고집','연탄불고기, 돼지불고기, 돼지불백, 불고기백반, 고추장',sysdate,'pciture/img.jpg','02-722-5747','11:00 - 21:00','서울 종로구 청계천로 75-1','37.582353, 126.983387',0,1);
+insert into tasty values (t_no_seq.nextval,'정선할매곤드레밥','곤드레밥 7,000원, 만드레정식 10,000원, 곤드레정식 15,000원, 딱주기정식 13,000원',sysdate,'pciture/img.jpg','02-734-1215','11:00 - 09:00','서울 종로구 인사동8길 13','37.574132, 126.985889',0,1);
+insert into tasty values (t_no_seq.nextval,'현미애가','애가 집밥 8,000원, 매생이굴현미떡국 8,000원',sysdate,'pciture/img.jpg','02-953-8226','00:00 - 00:00','서울 성북구 삼선교로23길 7','37.590169, 127.014240',0,1);
+
+--<!--일식 5개-->
+insert into tasty values (t_no_seq.nextval,'토끼정강님','크림카레우동 ; 14,500원, 매콤달콤 고기튀김(닭) : 15,000원, 매콤달콤 고기튀김(돼지) : 14,500원, 맛간장소스 고기튀김(닭) :15,000원, 맛간장소스 고기튀김(돼지) :15,000원',sysdate,'pciture/img.jpg',NULL,'11:00 - 23:00','서울 강남구 봉은사로6길 32','37.503176, 127.027259',0,2);
+insert into tasty values (t_no_seq.nextval,'마코토','대표특사시미 모리아와세 : 149,000원, 사시미 모리아와세 : 79,000원, 특선 마코토 코스 : 120,000원, 샤브샤브 정식 : 68,000원, 스키야키 정식 : 68,000원',sysdate,'pciture/img.jpg','16:00 - 02:00','37.531848, 127.042982',0,2);
+insert into tasty values (t_no_seq.nextval,'만푸쿠','가츠동 : 6500원',sysdate,'pciture/img.jpg','02-546-9218','11:30 - 21:30','서울 강남구 압구정로80길 37','37.510625, 127.110236',0,2);
+insert into tasty values (t_no_seq.nextval,'우동 카덴','우동 : 6,000원, 붓가케우동 8,500원' ,sysdate,'pciture/img.jpg','02-6463-6362','11:30 - 21:30','서울 마포구 양화로7안길 2-1','37.551904, 126.915065',0,2);
+insert into tasty values (t_no_seq.nextval,'은행골','모듬초밥 : 10,000원,특선초밥 : 15,000원',sysdate,'pciture/img.jpg','02-3444-4988','12:00 - 23:00','서울 강남구 도산대로12길 7','37.483200, 126.904380',0,2);
+
+--<!--중식 -->
+insert into tasty values (t_no_seq.nextval,'목란','짜장면 : 6,000원, 짬뽕 : 10,000, 탕수육 : 20,000원',sysdate,'pciture/img.jpg','02-732-1245','11:30 - 22:00','서울 서대문구 연희로15길 21','37.568581, 126.930404',0,3);
+insert into tasty values (t_no_seq.nextval,'송죽장','짜장면 : 5,000원, 짬뽕 : 5,500, 탕수육 : 12,000원',sysdate,'pciture/img.jpg','02-2631-9184','11:00 - 22:00','서울 영등포구 영중로 21','37.518340, 126.905331',0,3);
+insert into tasty values (t_no_seq.nextval,'이화원','실고기 짬봉 : 8,000원, 기스면 : 7,000원, 굴짬뽕 8,000원',sysdate,'pciture/img.jpg','02-3466-7799','11:30 - 22:00','서울 강남구 테헤란로87길 46','37.568790, 126.928615',0,3);
+insert into tasty values (t_no_seq.nextval,'란주라미엔','해물볶음도삭면 : 8,000원, 바지락도삭면 : 7,500원, 해물자장도삭면 : 6,500원',sysdate,'pciture/img.jpg','02-779-4800','09:30 - 21:30','서울 중구 소공로 64','37.563707, 126.981163',0,3);
+insert into tasty values (t_no_seq.nextval,'개화','유니짜장면 : 5,500원, 짬뽕 : 6,000원, 낙지짬뽕 : 10,000원, 삼겹살짬뽕 9,000원',sysdate,'pciture/img.jpg','02-581-5005','11:00 - 22:00','서울 서초구 동작대로 86','37.484467, 126.982384',0,3);
+
+--<!-- 양식 -->
+insert into tasty values (t_no_seq.nextval,'바비레드','레드갈비스튜 : 14,000원, 바비스테이크 : 17,000원, 레드갈릭밥스타 : 12,000원 ',sysdate,'pciture/img.jpg','02-3452-1515','11:30 - 22:00','서울 강남구 봉은사로6길 39','37.509073, 127.028462',0,4);
+insert into tasty values (t_no_seq.nextval,'라이너스바베큐','폴드포크샌드위치 : 12,000원, 브리스킷 샌드위치 15,000원, 2인용 플래터 31,000원',sysdate,'pciture/img.jpg','02-790-2920','11:00 - 22:30','서울 용산구 이태원로 136-13','37.533942, 126.989612',0,4);
+insert into tasty values (t_no_seq.nextval,'킹콩 스테이크','프렌치 넘버 원 등신 스테이크 : 19,000원, 바질 꽃등심 스테이크 : 23,000원, 프리미엄 와인 안심 스테이크 : 30,000원',sysdate,'pciture/img.jpg','050-4456-2269','11:00 - 23:00','서울 강남구 논현로175길 69','37.524016, 127.023385',0,4);
+insert into tasty values (t_no_seq.nextval,'사모님 돈가스','사모님 돈가스 : 8,500원, 치즈 토핑 매운 돈가스 : 12,000원 , 스프 : 1,000원',sysdate,'pciture/img.jpg','02-337-2207','12:00 - 21:00','서울 마포구 와우산로 39-13','37.548310, 126.922279',0,4);
+insert into tasty values (t_no_seq.nextval,'성격양식','철판치즈스테이크 : 12,900원, 오븐 까르보나라 11,900원, 트리플 치즈라쟈니아 : 13,900원',sysdate,'pciture/img.jpg','02-333-9220','11:30 - 21:30','서울 마포구 연남로 6','37.560725, 126.923503',0,4);
+
+--<!--기타 -->
+
+insert into tasty values (t_no_seq.nextval,'델리인디아','델리인디아 A 세트 : 15,000원, 평일런치세트 A : 11,000원, 탄두리치킨 : 18,000원',sysdate,'picture/img.jpg','02-2631-2109','11:00 - 22:30','서울 마포구 독막로9길 8 2층','37.548823, 126.919695',0,5);
+insert into tasty values (t_no_seq.nextval,'분짜라붐','하노이쌀국수 : 9,000원, 하노이직화분짜 : 12,000원, 느억맘볶음밥 : 9,000원',sysdate,'pciture/img.jpg','02-749-4993','11:00 - 02:00','서울 용산구 이태원로 247','37.537132, 127.000181',0,5);
+insert into tasty values (t_no_seq.nextval,'뭄알로이','팟타이 : 11,000원, 똠얌꿍 : 15,000원, 톳만꿍 : 10,000원',sysdate,'pciture/img.jpg','070-8236-9138','11:30 - 22:00','서울 마포구 와우산로11길 9-7','37.548715, 126.922372',0,5);
+insert into tasty values (t_no_seq.nextval,'맹그로브','까오쏘이 : 7,000원, 라오누들 : 7,000원 ',sysdate,'pciture/img.jpg','070-8600-8558','11:30 - 21:00','서울 마포구 마포대로12길 29','37.572087, 126.962423',0,5);
+insert into tasty values (t_no_seq.nextval,'허머스키친','Hummus with Nuts : 11,000원, beef Shakshuka 19,000원, Hummus Avocado on Pitta : 22,000원',sysdate,'pciture/img.jpg','02-3453-6811','11:30 - 23:00','서울 강남구 테헤란로 521','37.534832, 126.997840',0,5);
+
+
+/*******FAQ 초기데이터 ***********/
+insert into faq values (f_no_seq.nextval,'회원가입은 어떻게 하나요?', 1, '상단에서 을 클릭하여 우측에 회원가입 폼에서 가입이 가능합니다.');
+insert into faq values (f_no_seq.nextval,'포토존이 뭔가요?', 1, '새롭게 개편된 메뉴판 닷컴의 커뮤니티 메뉴 중 하나로, 회원님의 다양한 분야의 사진을 게시할 수 있는 공간입니다.');
+insert into faq values (f_no_seq.nextval,'포인트가 뭔가요?', 1, '홈페이지 내에 유익한 게시글을 많이 작성하시면 획득 하실 수 있는 포인트 입니다.');
+
+
+/*******후기 초기데이터 ***********/
+
+insert into hoogi values (h_no_seq.nextval,'델리인디아 다녀왔습니당',1,'인도의 매력을 느낄 수 있는 곳',sysdate,'../img.jpg',1,1,0);
+insert into hoogi values (h_no_seq.nextval,'분짜라붐 다녀왔습니당',1,'베트남의 매력을 느낄 수 있는 곳',sysdate,'../img.jpg',1,5,0);
+
+insert into hoogi values (h_no_seq.nextval,'바비레드 다녀왔습니당',1,'바비스테이크 매력을 느낄 수 있는 곳',sysdate,'../img.jpg',1,4,0);
+insert into hoogi values (h_no_seq.nextval,'라이너스바베큐 다녀왔습니당',1,'샌드위치 매력을 느낄 수 있는 곳',sysdate,'../img.jpg',1,4,0);
+
+insert into hoogi values (h_no_seq.nextval,'목란 다녀왔습니당',1,'짜장면 매력을 느낄 수 있는 곳',sysdate,'../img.jpg',1,3,0);
+insert into hoogi values (h_no_seq.nextval,'송죽장 다녀왔습니당',1,'탕수육 매력을 느낄 수 있는 곳',sysdate,'../img.jpg',1,3,0);
+
+insert into hoogi values (h_no_seq.nextval,'토끼정강님 다녀왔습니당',1,'크림카레우동 매력을 느낄 수 있는 곳',sysdate,'../img.jpg',1,2,0);
+insert into hoogi values (h_no_seq.nextval,'마코토 다녀왔습니당',1,'모리아와세 매력을 느낄 수 있는 곳',sysdate,'../img.jpg',1,2,0);
+
+insert into hoogi values (h_no_seq.nextval,'가정식밥집미미 다녀왔습니당',1,'떡갈비정식 매력을 느낄 수 있는 곳',sysdate,'../img.jpg',1,1,0);
+insert into hoogi values (h_no_seq.nextval,'문숙이미나리식당 다녀왔습니당',1,'보쌈 매력을 느낄 수 있는 곳',sysdate,'../img.jpg',1,1,0);
+
+/*******아이템 초기데이터 ***********/
+INSERT INTO ITEM(i_no, i_name, i_price) 	VALUES(I_NO_SEQ.NEXTVAL, '커피', 4000);
+INSERT INTO ITEM(i_no, i_name, i_price) 	VALUES(I_NO_SEQ.NEXTVAL, '우유', 2000);
+INSERT INTO ITEM(i_no, i_name, i_price) 	VALUES(I_NO_SEQ.NEXTVAL, '불닭맛아몬드', 1500);
+
+commit;
+select * from hoogi;
+select * from tasty;
+select * from recipe;
+select * from datgle;
+select * from score;
+select * from member;
+select * from category;
+select * from grade;
+
+/****** IOT 관련 ****/
+select * from item;
+select * from jumon;
+select * from porce;
+
+commit;

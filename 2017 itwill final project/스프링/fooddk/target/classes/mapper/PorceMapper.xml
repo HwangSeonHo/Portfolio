@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.PorceMapper">
+
+<select id="selectAll"
+		resultType="Porce">
+	select * from porce
+</select>	
+
+<insert id="insert" parameterType="Porce">
+<selectKey keyProperty="p_no" keyColumn="p_no" resultType="int" order="AFTER">
+	SELECT P_NO_SEQ.CURRVAL FROM DUAL
+</selectKey>
+	INSERT INTO PORCE(p_no, j_no, t_no) 
+	VALUES(P_NO_SEQ.NEXTVAL, #{j_no}, #{t_no})
+</insert>
+
+<update id="update" parameterType="Porce" >
+	UPDATE PORCE
+	SET j_no=#{j_no}, t_no=#{t_no}
+	WHERE P_NO=#{p_no}
+</update>
+
+<delete id="delete" parameterType="int">
+	DELETE FROM PORCE
+	WHERE P_NO = #{p_no}
+</delete>
+
+</mapper>

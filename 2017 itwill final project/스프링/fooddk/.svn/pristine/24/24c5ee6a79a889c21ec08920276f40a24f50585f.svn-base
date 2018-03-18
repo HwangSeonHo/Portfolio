@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fooddk.mapper.MemberMapper">
+
+
+	<!-- 회원가입 -->
+	<insert id="insertMember"
+	parameterType="Member">
+	
+	INSERT INTO MEMBER (M_NO,M_NAME,M_ID,M_PW,M_BIRTH,M_GENDER) 
+	VALUES(M_NO_SEQ.NEXTVAL,#{m_name},#{m_id},#{m_pw},#{m_birth},#{m_gender})
+	</insert>
+	
+	
+	<!-- 수정 -->
+	<update id="updateMember"
+	parameterType="Member">
+	UPDATE MEMBER SET m_name=#{m_name},m_pw=#{m_pw},m_birth=#{m_birth} where m_no=#{m_no}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="deleteMemberByNo" parameterType="java.lang.Integer">
+		delete from MEMBER
+		where m_no = #{m_no} 
+	</delete>
+	
+	
+	<!-- 전체 맴버 보기-->
+	<select id="selectAllMember" resultType="Member">
+		SELECT * FROM Member
+	</select>
+	
+	<!-- 아이디 찾기 -->
+	<select id="selectMemberById" resultType="Member">
+		select * from Member where m_name=#{m_name}
+	</select>
+	<!-- 생일로 찾기 -->
+	<select id="selectMemberByBirth" resultType="Member">
+		select * from Member where m_birth=#{m_birth}
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="selectMemberByPw" resultType="Member">
+		select m_pw from Member where m_name=#{m_name} and m_id=#{m_id} and m_birth=#{m_birth}
+	</select>
+	
+	<!-- 내정보 보기 -->
+	<select id="selectMemberMyInfo" resultType="Member">
+		select * from Member where m_no=#{m_no}
+	</select>
+	
+	
+	<!-- 아이디 중복체크 -->
+	<select id="selectMemberCheckId" resultType="Member">
+		select * from Member where m_id=#{m_id}
+	</select>
+	
+	<!-- point update -->
+	<update id="updatePointByno" parameterType="int">
+		update member set m_point=m_point+100 where m_no=#{m_no}
+	</update>
+	
+	<!-- grade update -->
+	<update id="updateGradeBypoint1">
+		update member 
+		set g_no=1
+		where m_point&gt;0 and m_point&lt;1001
+	</update>
+	<update id="updateGradeBypoint2">
+		update member 
+		set g_no=2
+		where m_point&gt;1000 and m_point&lt;2001
+	</update>
+	<update id="updateGradeBypoint3">
+		update member 
+		set g_no=3
+		where m_point&gt;2000 and m_point&lt;3001
+	</update>
+	<update id="updateGradeBypoint4">
+		update member 
+		set g_no=4
+		where m_point&gt;3000 and m_point&lt;4001
+	</update>
+	<update id="updateGradeBypoint5">
+		update member 
+		set g_no=5
+		where m_point&gt;4000 and m_point&lt;=5001
+	</update>
+	
+
+
+
+</mapper>

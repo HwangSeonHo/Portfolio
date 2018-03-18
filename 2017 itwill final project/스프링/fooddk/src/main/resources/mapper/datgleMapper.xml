@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.datgleMapper">
+
+<select id="selectList"
+		parameterType="ListResultBean_filter"
+		resultType="Datgle">
+	<![CDATA[	
+	select * from 
+		(select rownum idx, d.* from 
+			(select * from 
+				datgle where d_filter=#{d_filter} and d_groupno=#{d_groupno} order by d_date desc, d_no desc
+			) d
+		)
+	where idx>=#{startRowNum} and idx<=#{endRowNum}
+	]]>
+</select>
+
+<select id="selectByFilterTitle"
+		parameterType="Datgle"
+		resultType="Datgle">
+	select * from datgle where d_filter=#{d_filter} and d_title like '%'||#{d_title}||'%'
+</select>
+
+<select id="selectByNo"
+		parameterType="int"
+		resultType="Datgle">
+	select * from datgle where d_no=#{d_no}
+</select>
+	
+<select id="selectAllByFilter"
+		parameterType="string"
+		resultType="Datgle">
+	select * from datgle where d_filter=#{d_filter} order by d_date desc
+</select>	
+	
+<select id="selectCountByFilter"
+		parameterType="string"
+		resultType="int">
+	select count(*) count from datgle where d_filter=#{d_filter}
+</select>	
+
+<select id="selectCount"
+		parameterType="Datgle"
+		resultType="int">
+	select count(*) count from datgle where d_filter=#{d_filter} and d_groupno=#{d_groupno}		
+</select>
+	
+<insert id="insert"
+		parameterType="Datgle">
+	insert into datgle values(d_no_seq.nextval, #{d_groupno},#{d_step},
+							  #{d_filter},#{d_content},#{m_no},
+							  #{d_title},sysdate)
+	<selectKey keyProperty="d_no"
+			   order="AFTER"
+			   resultType="int">
+			   select d_no_seq.currval as seqno from dual
+	</selectKey>
+</insert>	
+	
+<update id="updateByNo"
+		parameterType="Datgle">
+	update datgle set d_title=#{d_title}, d_content=#{d_content},
+					  d_date=sysdate where d_no=#{d_no}
+</update>	
+	
+<delete id="deleteByNo"
+		parameterType="int">
+	delete datgle where d_no=#{d_no}		
+</delete>	
+
+</mapper>

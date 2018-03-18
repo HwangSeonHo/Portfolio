@@ -1,0 +1,39 @@
+package fooddk.service.tasty;
+
+import java.util.List;
+
+import fooddk.domain.Tasty;
+import fooddk.paging.ListPageConfigBean;
+import fooddk.paging.ListPageConfigBean_filter;
+import fooddk.paging.ListResultBean_filter;
+import fooddk.paging.ListResultBean_tasty;
+
+public interface TastyService {
+	
+	ListResultBean_tasty selectList(ListPageConfigBean pageConfig) throws Exception;
+
+	int insert(Tasty tasty);
+
+	int updateByNo(Tasty tasty);
+
+	int updateCount(int t_no);
+
+	int deleteByNo(int t_no);
+
+	List<Tasty> selectAll();
+
+	Tasty selectByNo(int t_no);
+
+	ListResultBean_tasty selectCount(ListPageConfigBean pageConfig) throws Exception;
+
+	ListResultBean_tasty selectDate(ListPageConfigBean pageConfig) throws Exception; 
+
+	String selectImgByNo(int t_no);
+
+	String selectAddressByNo(int t_no);
+
+	List<Tasty> selectByTitle(String t_title);
+	
+	int countAll();
+
+}

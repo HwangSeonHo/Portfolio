@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.category.mapper.CategoryMapper">
+	<insert id="insertCategory" parameterType="Category">
+	insert into category (c_no, c_kind) values (c_no_seq.nextval,#{c_kind})
+	</insert>
+	
+	<update id="updateCategory" parameterType="Category">
+		update category set c_kind=#{c_kind} where c_no=#{c_no} 
+	</update>
+	
+	<delete id="deleteCategory" parameterType="java.lang.Integer">
+		delete from category where c_no=#{c_no}
+	</delete>
+	
+	<select id="selectCategoryNumber" parameterType="int" resultType="Category">
+		select * from category where c_no=#{c_no}
+	</select>
+	
+	<select id="AllCategory" resultType="Category">
+		select * from category
+	</select>
+</mapper>

@@ -1,0 +1,21 @@
+package fooddk.controller.member;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import fooddk.service.member.MemberServiceImpl;
+
+@Controller
+public class MemberMainController {
+
+	MemberServiceImpl memberServiceImpl = new MemberServiceImpl();
+	
+	
+	
+	@RequestMapping("/member_main")
+	public String member_main(){
+		
+		return "index";
+	}
+	
+}

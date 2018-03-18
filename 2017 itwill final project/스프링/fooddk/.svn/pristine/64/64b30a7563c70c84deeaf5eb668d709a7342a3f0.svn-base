@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 매퍼경로 지정해주기 namespace -> DAOImpl에서써야함 -->
+<mapper namespace="com.itwill.mapper.HoogiMapper">
+<!--result insert -->
+<!-- Mybatis 쿼리문 작성하기 파라미터타입을 바로정해서 불러올수 있음 -->
+<!-- resultType : 결과를 받을 클래스? -->
+<!-- id는 쿼리를 구분 할 수 있는 단어 -->
+<!-- 테이블전체를 조회하는 쿼리는, 받는 인자가 필요없으므로 parameterType가 필요없다. -->
+<!-- parameterType : 입력을 받는 데이터 
+ 파라미터의 값으로 사용 #{변수}
+ 파리미터 명으로 사용 ${변수명}-->
+<!-- resultType : 쿼리 수행 후 결과를 보여줌 -->
+
+<!-- 후기 글 쓰기 -->
+<insert id = "insertHoogi"
+parameterType = "Hoogi">
+
+INSERT INTO HOOGI (H_NO,H_TITLE,H_CONTENT,H_IMG,H_COUNT,T_NO,C_NO,M_NO) 
+VALUES (H_NO_SEQ.NEXTVAL,#{h_title},#{h_content},#{h_img},#{h_count},#{t_no},#{c_no},#{m_no})
+
+</insert>
+
+<!-- 후기글삭제하기 -->
+<delete id ="deleteByNo"
+parameterType="java.lang.Integer">
+
+DELETE HOOGI WHERE H_NO=#{H_NO}
+</delete>
+
+<!-- 후기글 업데이트하기 -->
+<update id="updateByNo"
+parameterType="Hoogi">
+
+UPDATE HOOGI SET H_TITLE=#{h_title},
+H_CONTENT=#{h_content},
+H_IMG=#{h_img},
+H_COUNT=#{h_count} 
+where H_NO=#{h_no}
+</update>
+
+<!-- 후기 글 선택하기(Detail가기위한) -->
+<select id ="selectByNo"
+parameterType="java.lang.Integer"
+resultType="Hoogi">
+SELECT H_NO,H_TITLE,H_CONTENT,H_DATE,H_IMG,H_COUNT,M_NO FROM HOOGI WHERE H_NO=#{H_NO}
+</select>
+
+<!-- 번호 선택해서 이미지만 출력하기 -->
+<select id="selectImgByNo"
+parameterType="java.lang.Integer"
+resultType="Hoogi">
+SELECT * FROM HOOGI WHERE H_NO=#{H_NO}
+</select>
+
+<!-- 제목검색해서 출력하게하기 -->
+<select id="selectByTitle"
+parameterType="java.lang.String"
+resultType="Hoogi">
+SELECT H_NO,H_TITLE,H_CONTENT,H_DATE,H_IMG,H_COUNT FROM HOOGI WHERE H_TITLE like '%'||#{H_TITLE} ||'%'
+																 
+</select>
+ 
+<!-- 모든 후기 리스트 받아오기 -->
+<select id="selectAll"
+resultType="Hoogi">
+SELECT * FROM HOOGI
+</select>
+
+<!-- 후기글 조회수로 받아오기 -->
+<select id="selectByCount"
+resultType="Hoogi">
+SELECT H_NO,H_TITLE,H_CONTENT,H_DATE,H_IMG,H_COUNT FROM HOOGI ORDER BY H_COUNT DESC
+</select>
+<!-- 후기글 날짜로 받아오기 -->
+<select id ="selectByDate"
+resultType="Hoogi">
+SELECT H_NO,H_TITLE,H_CONTENT,H_DATE,H_IMG,H_COUNT FROM HOOGI ORDER BY H_DATE DESC
+</select>
+<!-- 글 작성할 때, [A]맛집 이름받아오기 -->
+<select id="selectTNo"
+parameterType="java.lang.Integer"
+resultType="Hoogi">
+SELECT H_NO, H_TITLE FROM HOOGI WHERE T_NO=#{T_NO}
+</select>
+<!-- 후기글 업데이트하기 -->
+<update id="updateByCountNo"
+parameterType="java.lang.Integer">
+
+UPDATE HOOGI SET 
+H_COUNT=h_count +1
+where H_NO=#{h_no}
+</update>
+
+<!-- pagingHoogiList하기 위한 쿼리 -->
+<select id="findHoogi" resultType="Hoogi"
+parameterType="ListResultBean_hoogi">
+<![CDATA[	
+	 SELECT * FROM
+	  ( SELECT rownum idx, s.* FROM
+	 	 ( SELECT h_no, h_title, h_content, h_date, h_img, h_count
+		  FROM HOOGI  
+	 	  ORDER BY h_no DESC	) 
+	  s)
+	 WHERE idx >= #{startRowNum} AND idx <= #{endRowNum}
+	 ]]>
+</select>
+
+<!-- select 총 게시글 뽑아오기 (페이징할 때 필요) -->
+<select id="selectcount" resultType="int">
+SELECT COUNT(*) FROM HOOGI 
+</select>
+
+<!-- t_no 별로 선택 -->
+<select id="selectByt_no" resultType="Hoogi" parameterType="int">
+SELECT * FROM 
+HOOGI
+WHERE h_count=(SELECT MAX(h_count) FROM HOOGI where t_no=#{t_no})
+</select>
+
+<select id="selectDate" resultType="Hoogi" parameterType="ListResultBean">
+<![CDATA[	
+	 SELECT * FROM
+	  ( SELECT rownum idx, s.* FROM
+	 	 ( SELECT h_no, h_title, h_content, h_date, h_img, h_count
+		  FROM hoogi  
+	 	  ORDER BY h_date desc, h_count desc) 
+	  s)
+	 WHERE idx >= #{startRowNum} AND idx <= #{endRowNum}	  
+	 ]]>
+</select>
+
+</mapper>

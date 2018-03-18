@@ -1,0 +1,99 @@
+package fooddk.controller.hoogi;
+
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import fooddk.domain.Hoogi;
+import fooddk.domain.Tasty;
+import fooddk.service.hoogi.HoogiService;
+import fooddk.service.recipe.RecipeServiceImpl;
+import fooddk.service.tasty.TastyService;
+
+@Controller
+public class HoogiUpdateActionController {
+	
+	
+	Hoogi hoogi;
+	//서비스받아오기
+	@Autowired
+	private HoogiService hoogiservice;
+	
+	@Autowired
+	private TastyService tastyservice;
+	
+	@Autowired
+	private RecipeServiceImpl recipeserviceimpl;
+	
+	//폼 매핑하기
+	@RequestMapping("/Hoogi_Modify_form_1")
+	public String handleRequest(Model model, @RequestParam int h_no){
+		
+		
+		Hoogi hoogiselect =	hoogiservice.selectByNo(h_no);
+		
+		model.addAttribute("hoogiselect",hoogiselect);
+		//포워드 .jsp
+		String forwardPath="Hoogi_Modify_form_1";
+		//String forwardPath="HoogiUpdateForm";
+		//맛집 리스트 뽑아오기
+		List<Tasty> tastyList = tastyservice.selectAll();
+
+		
+
+		//레시피 동적 뽑아오기 (하나하나 다 뽑아와야함)
+		int recipecount1 = recipeserviceimpl.countAllByDynamic(1);
+		int recipecount2 = recipeserviceimpl.countAllByDynamic(2);
+		int recipecount3 = recipeserviceimpl.countAllByDynamic(3);
+		int recipecount4 = recipeserviceimpl.countAllByDynamic(4);
+		int recipecount5 = recipeserviceimpl.countAllByDynamic(5);
+		
+		
+
+		//카운트뽑아오기
+		model.addAttribute("recipecount1",recipecount1);
+		model.addAttribute("recipecount2",recipecount2);
+		model.addAttribute("recipecount3",recipecount3);
+		model.addAttribute("recipecount4",recipecount4);
+		model.addAttribute("recipecount5",recipecount5);
+	
+		
+		
+		//맛집 리스트 보여주기
+		model.addAttribute("tastyList",tastyList);
+
+		return forwardPath;
+	}
+	
+	
+	//모델추가해줘야함
+	@RequestMapping(value ="/Hoogi_Modify_Action",method= RequestMethod.POST)
+	public String handleRequest(@ModelAttribute Hoogi hoogi){
+		String forwardPath="";
+		
+		int udpateByNo = hoogiservice.updateByNo(hoogi);
+		System.out.println("udpateByNo!!!!!!!!!!!!!!"+ udpateByNo);
+		if(udpateByNo ==1){
+			//컨트롤러보낼때
+			forwardPath="redirect:HoogiView_1.?h_no="+hoogi.getH_no();
+		}else{
+			return forwardPath="";
+		}
+		
+		return forwardPath;
+	}
+	//액션 매핑 및 메소드방법
+	
+	
+	
+}

@@ -1,0 +1,57 @@
+package fooddk.controller.recipe;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import fooddk.domain.Item;
+import fooddk.domain.Jumon;
+import fooddk.domain.Recipe;
+import fooddk.paging.ListPageConfigBean;
+import fooddk.paging.ListResultBean;
+import fooddk.service.arduino.ItemService;
+import fooddk.service.arduino.ItemServiceImpl;
+import fooddk.service.arduino.JumonServiceImpl;
+import fooddk.service.recipe.RecipeServiceImpl;
+
+@Controller
+public class ButtonController {
+	@Autowired
+	private RecipeServiceImpl recipeServiceImpl;
+	@Autowired
+	private ItemServiceImpl itemServiceImpl;
+	@Autowired
+	private JumonServiceImpl jumonServiceImpl;
+	
+	public ButtonController() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	@RequestMapping(value="/button")
+	public @ResponseBody String recipe_list(@RequestParam String menu_no) throws Exception{
+		
+		Item item = itemServiceImpl.selectByNo(Integer.parseInt(menu_no));
+		
+		System.out.println("주문 메뉴 번호 : "+menu_no);
+		System.out.println("주문 메뉴 이름 : "+item.getI_name());
+		System.out.println("주문 메뉴 가격 : "+item.getI_price());
+		
+		jumonServiceImpl.insert(new Jumon(0, 1, Integer.parseInt(menu_no)));
+		
+		List<Jumon> list = jumonServiceImpl.selectBySeatNo(new Jumon(1,1,0));	
+		System.out.println("1번 테이블 주문 내역 : ");
+		for (Jumon jumon : list) {
+			System.out.println(itemServiceImpl.selectByNo(jumon.getI_no()).getI_name());
+		}
+		
+		return "ok+";
+		
+	}
+
+}

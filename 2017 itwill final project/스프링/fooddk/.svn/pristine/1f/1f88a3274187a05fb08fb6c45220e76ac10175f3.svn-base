@@ -1,0 +1,57 @@
+package fooddk.controller.member;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import fooddk.domain.Grade;
+import fooddk.domain.Member;
+import fooddk.service.category.CategoryService;
+import fooddk.service.grade.GradeService;
+import fooddk.service.grade.GradeServiceImpl;
+import fooddk.service.member.MemberService;
+import fooddk.service.member.MemberServiceImpl;
+
+@SessionAttributes("sId")
+@Controller
+public class MemberViewController {
+
+	@Autowired
+	private MemberService memberService;
+
+	@Autowired
+	private GradeService gradeService;
+	
+	@Autowired
+	private CategoryService categoryService; 
+	
+	@RequestMapping("/member_view")
+	public String member_view(@ModelAttribute("sId") String sId , Model model){
+		String forwardPath = "";
+		
+		Member selectMember = memberService.selectMemberCheckId(sId);
+			System.out.println(selectMember);
+		
+		String grade = gradeService.selectGradeOne(selectMember.getG_no()).getG_grade();
+		String kind = categoryService.selectCategoryNumber(selectMember.getC_no()).getC_kind();
+		model.addAttribute("member", selectMember);
+		model.addAttribute("grade",grade);
+		model.addAttribute("ckind",kind);
+		
+		forwardPath ="member_view";
+		
+		
+		
+		return forwardPath;
+		
+	}
+	
+	
+}

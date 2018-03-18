@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/viewForm"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecipeViewActivity">
+
+    <TextView
+        android:id="@+id/c_noTV"
+        android:layout_width="132dp"
+        android:layout_height="31dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="33dp"
+        android:layout_marginTop="8dp"
+        android:text="c_no"
+        app:layout_constraintBottom_toTopOf="@+id/r_contentTV"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/m_noTV"
+        app:layout_constraintTop_toBottomOf="@+id/r_imgIV"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="33dp" />
+
+    <TextView
+        android:id="@+id/r_titleTV"
+        android:layout_width="297dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.016"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/m_noTV"
+        android:layout_width="132dp"
+        android:layout_height="31dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="8dp"
+        android:text="name"
+        app:layout_constraintBottom_toTopOf="@+id/r_contentTV"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_imgIV"
+        android:layout_marginEnd="48dp" />
+
+    <ImageView
+        android:id="@+id/r_imgIV"
+        android:layout_width="294dp"
+        android:layout_height="133dp"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_titleTV"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_marginStart="39dp" />
+
+    <TextView
+        android:id="@+id/r_contentTV"
+        android:layout_width="300dp"
+        android:layout_height="140dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="r_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.718"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <LinearLayout
+        android:layout_width="353dp"
+        android:layout_height="51dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp"
+        android:layout_marginTop="31dp"
+        app:layout_constraintTop_toBottomOf="@+id/r_contentTV">
+
+        <Button
+            android:id="@+id/listB"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:onClick="clickListB"
+            android:text="list"
+            tools:layout_editor_absoluteX="39dp"
+            tools:layout_editor_absoluteY="429dp" />
+
+        <Button
+            android:id="@+id/writeB"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:onClick="clickWriteB"
+            android:text="write"
+            tools:layout_editor_absoluteX="137dp"
+            tools:layout_editor_absoluteY="438dp" />
+
+        <Button
+            android:id="@+id/modifyB"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:onClick="clickModifyB"
+            android:text="modify"
+            tools:layout_editor_absoluteX="188dp"
+            tools:layout_editor_absoluteY="438dp" />
+
+        <Button
+            android:id="@+id/deleteB"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:onClick="clickDeleteB"
+            android:text="delete"
+            tools:layout_editor_absoluteX="267dp"
+            tools:layout_editor_absoluteY="438dp" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

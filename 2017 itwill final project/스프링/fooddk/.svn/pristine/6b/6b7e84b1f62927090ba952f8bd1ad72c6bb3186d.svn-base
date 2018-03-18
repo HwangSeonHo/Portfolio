@@ -1,0 +1,45 @@
+package fooddk.controller.member;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import fooddk.domain.Member;
+import fooddk.service.member.MemberServiceImpl;
+
+@Controller
+public class MemberListController {
+
+	@Autowired
+	private MemberServiceImpl memberServiceImpl;
+	
+	
+	public MemberListController() {
+		System.out.println("####MemberListController()생성자");
+	}
+
+	@RequestMapping("/member_list")
+	public String member_list(Model model){
+		
+		String forwardPath ="";
+		
+		List<Member> memberList = memberServiceImpl.selectMemberAll();
+		
+		model.addAttribute("memberList", memberList);
+		
+		forwardPath ="member_list";
+		
+		return forwardPath;
+		
+	}
+	
+	
+	
+}
+
+
+
+

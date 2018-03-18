@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- Uncomment and add your base-package here:
+         <context:component-scan
+            base-package="org.springframework.samples.service"/>  -->
+    
+    <context:property-placeholder location="classpath:db/jdbc.properties"/>
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		p:driverClassName="${jdbc.driverClassName}"
+		p:url="${jdbc.url}"
+		p:username="${jdbc.username}"
+		p:password="${jdbc.password}">
+	</bean>
+	
+	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:spring/mybatis-config.xml"/>
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:mapper/datgleMapper.xml</value>
+				<value>classpath:mapper/MemberMapper.xml</value>
+				<value>classpath:mapper/RecipeMapper.xml</value>
+				<value>classpath:mapper/HoogiMapper.xml</value>
+				<value>classpath:mapper/tastyMapper.xml</value>
+				<value>classpath:mapper/CategoryMapper.xml</value>
+				<value>classpath:mapper/GradeMapper.xml</value>
+				<value>classpath:mapper/ScoreMapper.xml</value>
+				<value>classpath:mapper/FaqMapper.xml</value>
+				<value>classpath:mapper/PorceMapper.xml</value>
+				<value>classpath:mapper/JumonMapper.xml</value>
+				<value>classpath:mapper/ItemMapper.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="session" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="datgleDao" class="fooddk.dao.datgle.DatgleDaoImpl">
+		<property name="sqlSession" ref="session"></property>
+	</bean>
+	
+	<bean id="memberDao" class="fooddk.dao.member.MemberDaoImpl">
+		<property name="sqlSession" ref="session"></property>
+	</bean>
+	
+	<bean id="recipeDao" class="fooddk.dao.recipe.RecipeDaoImpl">
+	 	<property name="sqlSession" ref="session"></property>
+	 </bean>
+
+	<bean id="hoogiDao" class="fooddk.dao.hoogi.HoogiDaoImpl">
+		<property name="sqlSession" ref="session"></property>
+	</bean>
+	
+	<bean id="tastyDao" class="fooddk.dao.tasty.TastyDaoImpl">
+		<property name="sqlSession" ref="session"></property>
+	</bean>
+	<bean id="categoryDao" class="fooddk.dao.category.CategoryDaoImpl">
+		<property name="sqlSession" ref="session"></property>
+	</bean>
+	<bean id="gradeDao" class="fooddk.dao.grade.GradeDaoImpl">
+		<property name= "sqlSession" ref="session"></property>
+	</bean>
+	<bean id="scoreDao" class="fooddk.dao.score.ScoreDaoImpl">
+		<property name= "sqlSession" ref="session"></property>
+	</bean>
+	<bean id ="faqDao" class="fooddk.dao.faq.FaqDaoImpl">
+		<property name="sqlSession" ref="session"></property>
+	</bean>
+	<bean id ="porceDao" class="fooddk.dao.arduino.PorceDaoImpl">
+		<property name="sqlSession" ref="session"></property>
+	</bean>
+	
+	<bean id="datgleService" class="fooddk.service.datgle.DatgleServiceImpl">
+		<property name="datgleDao" ref="datgleDao"></property>
+	</bean>
+	<bean id="memberService" class="fooddk.service.member.MemberServiceImpl">
+		<property name="memberDao" ref="memberDao"></property>
+	</bean>
+	<bean id="recipeService" class="fooddk.service.recipe.RecipeServiceImpl">
+		<property name="recipeDao" ref="recipeDao"></property>
+	</bean>
+	<bean id="hoogiService" class="fooddk.service.hoogi.HoogiServiceImpl">
+		<property name="hoogiDao" ref="hoogiDao"></property>
+	</bean>
+	<bean id="tastyService" class="fooddk.service.tasty.TastyServiceImpl">
+		<property name="tastyDao" ref="tastyDao"></property>
+	</bean>
+	<bean id="categoryService" class="fooddk.service.category.CategoryServiceImpl">
+		<property name="categoryDao" ref="categoryDao"></property>
+	</bean>
+	<bean id="gradeService" class="fooddk.service.grade.GradeServiceImpl">
+		<property name="gradeDao" ref="gradeDao"></property>
+	</bean>
+	<bean id="scoreService" class="fooddk.service.score.ScoreServiceImpl">
+		<property name="scoreDao" ref="scoreDao"></property>
+	</bean>
+	<bean id="faqService" class="fooddk.service.faq.FaqServiceImpl">
+		<property name="faqDao" ref="faqDao"></property>
+	</bean>
+	<bean id="porceService" class="fooddk.service.arduino.PorceServiceImpl">
+		<property name="porceDao" ref="porceDao"></property>
+	</bean>
+	
+</beans>

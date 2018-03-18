@@ -1,0 +1,34 @@
+package fooddk.controller.tasty;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import fooddk.domain.Datgle;
+import fooddk.domain.Tasty;
+import fooddk.service.datgle.DatgleServiceImpl;
+import fooddk.service.tasty.TastyServiceImpl;
+
+@Controller
+public class TastyViewController {
+	
+	@Autowired
+	TastyServiceImpl tastyService;
+	
+	@Autowired
+	DatgleServiceImpl datgleService;
+	
+	@RequestMapping(value="/TastyView")
+	public String tastyView(@RequestParam int t_no, Model model){
+		tastyService.updateCount(t_no);
+		Tasty tasty = tastyService.selectByNo(t_no);
+		model.addAttribute("tasty",tasty);
+		
+		int datgleCount = datgleService.selectCount(new Datgle("tasty",t_no));
+		model.addAttribute("datgleCount", datgleCount);
+		return "TastyView_1";
+	}
+}

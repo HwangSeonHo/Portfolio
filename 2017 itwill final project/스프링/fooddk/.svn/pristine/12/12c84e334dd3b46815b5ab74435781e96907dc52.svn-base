@@ -1,0 +1,3 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+{ coord: { lon: 126.98, lat: 37.57 }, weather: [ { id: 721, main: "Haze", description: "haze", icon: "50d" }, { id: 520, main: "Rain", description: "light intensity shower rain", icon: "09d" } ], base: "stations", main: { "temp": 23.56, "pressure": 1011, "humidity": 58, "temp_min": 80.6, temp_max: 84.2 }, visibility: 11265, wind: { speed: 6.93, deg: 200 }, clouds: { all: 75 }, dt: 1503032280, sys: { type: 1, id: 7673, message: 0.0139, country: "KR", sunrise: 1503003025, sunset: 1503051647 }, id: 1835848, name: "Seoul", cod: 200 }
