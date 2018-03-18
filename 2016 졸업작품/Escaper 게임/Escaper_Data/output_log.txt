@@ -1,0 +1,98 @@
+Initialize engine version: 5.4.1f1 (649f48bbbf0f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce 940MX (ID=0x134d)
+    Vendor:   NVIDIA
+    VRAM:     2019 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\NT500R5L-Z54L\Desktop\졸업작품\Escaper 게임\Escaper_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\NT500R5L-Z54L\Desktop\졸업작품\Escaper 게임\Escaper_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\NT500R5L-Z54L\Desktop\졸업작품\Escaper 게임\Escaper_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\NT500R5L-Z54L\Desktop\졸업작품\Escaper 게임\Escaper_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\NT500R5L-Z54L\Desktop\졸업작품\Escaper 게임\Escaper_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\NT500R5L-Z54L\Desktop\졸업작품\Escaper 게임\Escaper_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\NT500R5L-Z54L\Desktop\졸업작품\Escaper 게임\Escaper_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\NT500R5L-Z54L\Desktop\졸업작품\Escaper 게임\Escaper_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.101 seconds
+Platform assembly: C:\Users\NT500R5L-Z54L\Desktop\졸업작품\Escaper 게임\Escaper_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\NT500R5L-Z54L\Desktop\졸업작품\Escaper 게임\Escaper_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.808104 ms
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: c84 -> priority: 1 
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.588247 ms
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 1264.
+Total: 1.523622 ms (FindLiveObjects: 0.069119 ms CreateObjectMapping: 0.029439 ms MarkObjects: 0.299519 ms  DeleteObjects: 1.124263 ms)
+
+The referenced script on this Behaviour (Game Object 'Canvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.045757 ms
+
+Unloading 222 unused Assets to reduce memory usage. Loaded Objects now: 227.
+Total: 3.153485 ms (FindLiveObjects: 0.035839 ms CreateObjectMapping: 0.031573 ms MarkObjects: 0.168532 ms  DeleteObjects: 2.917539 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.395518 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 262.
+Total: 0.252586 ms (FindLiveObjects: 0.021333 ms CreateObjectMapping: 0.027306 ms MarkObjects: 0.181332 ms  DeleteObjects: 0.021759 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.556371 ms
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1264.
+Total: 1.973328 ms (FindLiveObjects: 0.161279 ms CreateObjectMapping: 0.037973 ms MarkObjects: 0.379305 ms  DeleteObjects: 1.392209 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.026557 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 1135.
+Total: 2.612046 ms (FindLiveObjects: 0.083199 ms CreateObjectMapping: 0.028586 ms MarkObjects: 0.322132 ms  DeleteObjects: 2.177274 ms)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.071783 ms
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 1244.
+Total: 2.340260 ms (FindLiveObjects: 0.204372 ms CreateObjectMapping: 0.049066 ms MarkObjects: 0.321279 ms  DeleteObjects: 1.764262 ms)
+
+The referenced script on this Behaviour (Game Object 'Canvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.186130 ms
+
+Unloading 224 unused Assets to reduce memory usage. Loaded Objects now: 228.
+Total: 2.617166 ms (FindLiveObjects: 0.045653 ms CreateObjectMapping: 0.027733 ms MarkObjects: 0.198399 ms  DeleteObjects: 2.344953 ms)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.385279 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1244.
+Total: 0.422398 ms (FindLiveObjects: 0.070826 ms CreateObjectMapping: 0.028159 ms MarkObjects: 0.313599 ms  DeleteObjects: 0.009386 ms)
+
+The referenced script on this Behaviour (Game Object 'Canvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.363623 ms
+
+Unloading 224 unused Assets to reduce memory usage. Loaded Objects now: 228.
+Total: 2.431140 ms (FindLiveObjects: 0.032853 ms CreateObjectMapping: 0.017919 ms MarkObjects: 0.177066 ms  DeleteObjects: 2.202447 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.430505 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 263.
+Total: 0.241066 ms (FindLiveObjects: 0.035839 ms CreateObjectMapping: 0.014506 ms MarkObjects: 0.181332 ms  DeleteObjects: 0.008106 ms)
+
